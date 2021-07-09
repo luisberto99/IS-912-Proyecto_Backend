@@ -18,9 +18,13 @@
   "homepage": "https://github.com/luisberto99/IS-912-Proyecto_Backend#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "jsonwebtoken": "^8.5.1",
-    "nodemon": "^2.0.9"
+    "nodemon": "^2.0.9",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
   }
 }
