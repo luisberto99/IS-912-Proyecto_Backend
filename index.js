@@ -28,6 +28,11 @@ app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser('secretmY'));
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Headers","*")
+  });
+
+
 app.use(session({
     secret: 'secretMy',
     resave: true,
@@ -40,10 +45,11 @@ app.use(passport.session());
 
 
 //implementando y configurando passport y la estrategia
-passport.use( new passportLocal((username, password, done)=>{
-    // console.log(username,password);
+passport.use( new passportLocal((email, password, done)=>{
+    console.log(email,password);
     //verificando un usuario
-    if(username == 'luisBanegas@gmail.com' && password == '1234'){
+    console.log(email,password);
+    if(email == 'luisBanegas@gmail.com' && password == '1234'){
         return done(null,{id:1,name:'Luis'});
     }
 
@@ -64,8 +70,8 @@ passport.deserializeUser((id,done)=>{
 
 
 app.post("/login", passport.authenticate("local",{
-    successRedirect: "https://www.youtube.com/",
-    failureRedirect: "/login"
+    successRedirect: "http://localhost:4200/empresas",
+    failureRedirect: "http://localhost:4200/"
     
 }));
 
