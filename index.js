@@ -48,7 +48,8 @@ app.use(passport.session());
 passport.use( new passportLocal((email, password, done)=>{
     console.log(email,password);
     //verificando un usuario
-    console.log(email,password);
+
+    // console.log(email,password);
     if(email == 'luisBanegas@gmail.com' && password == '1234'){
         return done(null,{id:1,name:'Luis'});
     }
@@ -70,7 +71,7 @@ passport.deserializeUser((id,done)=>{
 
 
 app.post("/login", passport.authenticate("local",{
-    successRedirect: "http://localhost:4200/empresas",
+    successRedirect: "http://localhost:4200/admin",
     failureRedirect: "http://localhost:4200/"
     
 }));
