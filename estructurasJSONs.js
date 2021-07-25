@@ -6,29 +6,31 @@
 // a una categoria.
 
 //==========================NO==========
-categoriaEmpresas = [{
-    id: "",
-    nombreCategoria: "",
-    iconoCategoria:'',
-    empresasCategoria: [{
-        nombreComericalEmpresa: "",
-        RTN: "",
-        direccion: "",
-        logo: "",
-        banner: "",
-        descripcion: "",
-        contactoEmpresa: "",
-        telefonoContacto: "",
-        estado: "",
-        productosEmpresa: [{
-            nombreProducto: "",
-            imagenProducto: [], //carrucel
-            descripcion:"",
-
-            precio: ""
-        }]
-    }]
-}];
+// categoriaEmpresas = [{
+//     id: "",
+//     nombreCategoria: "",
+//     iconoCategoria:'',
+//     empresasCategoria: [{
+//         nombreComericalEmpresa: "",
+//         RTN: "",
+//         direccion: "",
+//         logo: "",
+//         banner: "",
+//         descripcion: "",
+//         contactoEmpresa: "",
+//         telefonoContacto: "",
+//         estado: "",
+//         productosEmpresa: [{
+//             id: "",
+//             nombreProducto: "",
+//             imagenProducto: [], //carrucel
+//             descripcion:"",
+//             precio: "",
+//             cantidadExistente:"",
+//             empresaDistribuye: ""
+//         }]
+//     }]
+// }];
 
 //====================================
 
@@ -43,7 +45,10 @@ categorias: [{
         imagenProducto: [], //carrucel
         descripcion:"",
         precio: "",
-        cantidadExistente:""
+        fechaCreado:'',
+        cantidadExistente:"",
+        empresaDistribuye: "",
+        idEmpresaDistribuye: ""
     }] 
 }]
 
@@ -58,11 +63,15 @@ empresas: [{
     telefonoContacto: "",
     estado: "",
     productosEmpresa: [{
+        id: "",
         nombreProducto: "",
-        imagenProducto: [], //carrucel
+        imagenesProducto: [], //carrucel
         descripcion:"",
-
-        precio: ""
+        precio: "",
+        fechaCreado:'',
+        cantidadExistente:"",
+        empresaDistribuye: "",
+        idEmpresaDistribuye: ""
     }],
     categorias: []
 }]
@@ -75,6 +84,7 @@ clientes = [{
     carrito: [],
     imagenPerfil: "",
     correoElectronico: "",
+    fechaRegistro:"",
     password: "",
     telefono: "",
     ubicacion: [],
@@ -92,13 +102,35 @@ orden = [{
     fechaRealizada:'',
     informacionPago:[],
     codigoVerificacion: '',
-    productos: [{id:"", cantidad:""}], 
+    productos: [{
+        id: "",
+        nombreProducto: "",
+        imagenesProducto: [], //carrucel
+        descripcion:"",
+        precio: "",
+        fechaCreado:'',
+        cantidadExistente:"",
+        empresaDistribuye: "",
+        idEmpresaDistribuye: ""
+    }], 
     nota: "",
     estadoOrden: "",
     Motorista:''
 }];
 
-estadoOrden= ['Tomada', 'En Camino', 'Entregada']
+estadoOrden= ['Tomada', 'En Camino', 'Entregada', 'Disponible']
+
+productos = [{
+    id: "",
+    nombreProducto: "",
+    imagenesProducto: [], //carrucel
+    descripcion:"",
+    precio: "",
+    fechaCreado:'',
+    cantidadExistente:"",
+    empresaDistribuye: "",
+    idEmpresaDistribuye: ""
+}]
 
 motoristas = [{
     id: "klajdflkasdf",
