@@ -94,24 +94,23 @@ clientes = [{
     }]
 }];
 
-orden = [{
+ordenes = [{
     id: "",
     idOrden: "",
-    ubicacionEntrega: "",
+    idCliente: '',
+    ubicacionEntrega: "Col. Aleman",
+    nombreCliente: "",
     coordenadas: "",
     fechaRealizada:'',
     informacionPago:[],
-    codigoVerificacion: '',
+    codigoVerificacion: '1111',
     productos: [{
-        id: "",
-        nombreProducto: "",
-        imagenesProducto: [], //carrucel
-        descripcion:"",
-        precio: "",
-        fechaCreado:'',
-        cantidadExistente:"",
-        empresaDistribuye: "",
-        idEmpresaDistribuye: ""
+        id:'',
+        idProducto:'',
+        nombreProducto: "Computadora Acer",
+        cantidad:"1",
+        empresaDistribuye: "Curacao",
+        idEmpresaDistribuye: "12"
     }], 
     nota: "",
     estadoOrden: "",
