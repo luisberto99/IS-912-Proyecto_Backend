@@ -88,18 +88,26 @@ orden = [{
     id: "",
     idOrden: "",
     ubicacionEntrega: "",
+    coordenadas: "",
+    fechaRealizada:'',
     informacionPago:[],
     productos: [{id:"", cantidad:""}], 
     nota: "",
     estadoOrden: "",
-    Motorista:
-}]
+    Motorista:''
+}];
 
 estadoOrden= ['Tomada', 'En Camino', 'Entregada']
 
 motoristas = [{
     id: "klajdflkasdf",
-    nombreMotorista: "",
+    primerNombre: "",
+    primerApellido:"",
+    email:'',
+    password:'',
+    domicilio:'',
+    numeroTelefono:'',
+    imagenPerfil:'',
     estado: true,
     verificado: {
         userVerificador: "",
@@ -109,23 +117,10 @@ motoristas = [{
         id: "ajsdfljakslfj",
         idOrden: "123456789"
     }],
-    //ORDENES TOMADAS PENDIENTES DE ENTREGAR
-    ordenesTomadas: [{
+    ordenTomada:[{
         id: "ajsdfljakslfj",
         idOrden: "123456789"
-    }]
+    }],
+    
 }];
 
-ordenes = [{
-    id: "123456789",
-    fecha: "",
-    direccion: "",
-    motorista: "",
-    direccion: "",
-    coordenadas: "",
-    productos: [{
-        id: "laksjdflakjsdf", //id orden
-        cantidad: "",
-        comentarios: ""
-    }]
-}];
