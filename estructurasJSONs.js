@@ -91,6 +91,7 @@ orden = [{
     coordenadas: "",
     fechaRealizada:'',
     informacionPago:[],
+    codigoVerificacion: '',
     productos: [{id:"", cantidad:""}], 
     nota: "",
     estadoOrden: "",
