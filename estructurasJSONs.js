@@ -59,8 +59,7 @@ empresas: [{
     logo: "",
     banner: "",
     descripcion: "",
-    contactoEmpresa: "",
-    telefonoContacto: "",
+    telefono: "",
     estado: "",
     productosEmpresa: [{
         id: "",
@@ -73,7 +72,7 @@ empresas: [{
         empresaDistribuye: "",
         idEmpresaDistribuye: ""
     }],
-    categorias: []
+    categorias: [] //IDs
 }]
 
 
@@ -104,20 +103,20 @@ ordenes = [{
     fechaRealizada:'',
     informacionPago:[],
     codigoVerificacion: '1111',
+    idEmpresaDistribuye: "12",
+    nombreEmpresaDistribuye: "Curacao",
     productos: [{
         id:'',
         idProducto:'',
         nombreProducto: "Computadora Acer",
         cantidad:"1",
-        empresaDistribuye: "Curacao",
-        idEmpresaDistribuye: "12"
     }], 
     nota: "",
     estadoOrden: "",
     Motorista:''
 }];
 
-estadoOrden= ['Tomada', 'En Camino', 'Entregada', 'Disponible']
+estadoOrden= ['Tomada', 'Entregada', 'Disponible']
 
 productos = [{
     id: "",
@@ -125,9 +124,9 @@ productos = [{
     imagenesProducto: [], //carrucel
     descripcion:"",
     precio: "",
-    fechaCreado:'',
+    fechaCreacion:'',
     cantidadExistente:"",
-    empresaDistribuye: "",
+    empresaDistribuye: "", //ID
     idEmpresaDistribuye: ""
 }]
 
