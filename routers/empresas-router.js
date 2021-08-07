@@ -43,7 +43,7 @@ router.get('/:idEmpresa', (req, res) => {
             productosEmpresa: true
         })
         .then(result => {
-            res.send(result);
+            res.send(result[0]);
             res.end()
         })
         .catch(error => {
