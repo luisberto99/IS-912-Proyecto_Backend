@@ -98,7 +98,7 @@ ordenes = [{
     _idCliente: '',
     ubicacionEntrega: "Col. Aleman",
     nombreCliente: "",
-    coordenadas: ["",""], //mostrar mediante google maps - geolocalizacion
+    CoordenadasUbicacionEntrega: ["",""], //mostrar mediante google maps - geolocalizacion
     fechaRealizada:'',  
     informacionPago:[],
     codigoVerificacion: '1111',
