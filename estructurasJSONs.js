@@ -94,29 +94,36 @@ clientes = [{
 }];
 
 ordenes = [{
-    id: "",
-    idOrden: "",
-    idCliente: '',
+    _id: "",
+    _idCliente: '',
     ubicacionEntrega: "Col. Aleman",
     nombreCliente: "",
-    coordenadas: "",
-    fechaRealizada:'',
+    coordenadas: ["",""], //mostrar mediante google maps - geolocalizacion
+    fechaRealizada:'',  
     informacionPago:[],
     codigoVerificacion: '1111',
-    idEmpresaDistribuye: "12",
+    _idEmpresaDistribuye: "12",
     nombreEmpresaDistribuye: "Curacao",
-    productos: [{
-        id:'',
-        idProducto:'',
+    productosOrden: [{
+        _id:'',
         nombreProducto: "Computadora Acer",
         cantidad:"1",
+        nota: "",
+        precioVenta: ""
     }], 
-    nota: "",
-    estadoOrden: "",
-    Motorista:''
+    estadoOrden:  ['Tomada', 'Entregada', 'Disponible'],
+    _idMotorista:'',
+    nombreMotorista:'',
+    apellidoMotorista:'',
+    impuestoOrden:"",
+    comisionAdministrador:"",
+    comisionMotorista:"",
+    totalCostoOrden:"",
+    estadoOrdenTomada:['tomada', 'encamino', 'en el origen', 'en el destino']
 }];
 
-estadoOrden= ['Tomada', 'Entregada', 'Disponible']
+
+// estadoOrden= ['Tomada', 'Entregada', 'Disponible']
 
 productos = [{
     id: "",
@@ -129,6 +136,7 @@ productos = [{
     empresaDistribuye: "", //ID
     idEmpresaDistribuye: ""
 }]
+
 
 motoristas = [{
     id: "klajdflkasdf",
