@@ -7,7 +7,7 @@ var clientesRouter = require('./routers/clientes-router');
 var EmpresasRouter = require('./routers/empresas-router');
 var CategoriasRouter = require('./routers/categorias-router');
 var OrdenesRouter = require('./routers/ordenes-router');
-
+var MotoristasRouter = require('./routers/motoristas-router')
 const app = express();
 
 app.use(cors());
@@ -17,7 +17,7 @@ app.use('/clientes', clientesRouter);
 app.use('/empresas', EmpresasRouter);
 app.use('/categorias', CategoriasRouter);
 app.use('/ordenes', OrdenesRouter);
-
+app.use('/motoristas',MotoristasRouter)
 
 app.get('/', (req, res) => {
     res.send('BIENVENIDO');
