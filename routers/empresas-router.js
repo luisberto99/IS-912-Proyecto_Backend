@@ -62,7 +62,7 @@ router.post('/', (req, res) => {
         logo: req.body.logo,
         banner: req.body.banner,
         descripcion: req.body.descripcion,
-        telefonoContacto: req.body.telefonoContacto,
+        telefono: req.body.telefono,
         estado: req.body.estado,
         productosEmpresa: req.body.productosEmpresa,
         categorias: req.body.categorias,
@@ -91,7 +91,7 @@ router.put('/:id', (req, res) => {
             logo: req.body.logo,
             banner: req.body.banner,
             descripcion: req.body.descripcion,
-            telefonoContacto: req.body.telefonoContacto,
+            telefono: req.body.telefono,
             estado: req.body.estado,
             productosEmpresa: req.body.productosEmpresa,
             categorias: req.body.categorias,
@@ -143,7 +143,7 @@ router.get('/:idEmpresa/productos', (req, res) => {
         });
 });
 
-/* AGREGAR UNA NUEVA EMPRESA */
+/* AGREGAR UNA NUEVO PRODUCTO */
 router.post('/:idEmpresa/productos', (req, res) => {
     let producto = new productos({
         _id: mongoose.Types.ObjectId(),

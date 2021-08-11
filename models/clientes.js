@@ -7,6 +7,7 @@ var esquema = new mongoose.Schema({
     fechaRegistro: Date,
     password: String,
     telefono: String,
+    /*  */
     ubicacion: String,
     carrito: Array,
     ordenes: Array,
