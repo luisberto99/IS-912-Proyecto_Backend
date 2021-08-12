@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var categorias = require('../models/categorias');
+var empresas = require('../models/empresas');
 var mongoose = require('mongoose');
 
 /* OBTENER TODAS LAS CATEGORIAS */
@@ -17,7 +18,7 @@ router.get('/', function(req, res) {
         });
 });
 
-/* OBTENER UNA CATEGORIA CATEGORIA */
+/* OBTENER UNA CATEGORIA  */
 router.get('/:idCategoria', function(req, res) {
     categorias.find({
             _id: mongoose.Types.ObjectId(req.params.idCategoria)
@@ -87,4 +88,21 @@ router.delete('/:idCategoria', (req, res) => {
             res.end();
         });
 });
+
+/* OBTENER TODAS LAS EMPRESAS DENTRO DE UNA CATEGORIA */
+router.get('/:idCategoria/empresas', (req, res) => {
+    empresas.find({
+            categorias: req.params.idCategoria
+        }, {}).then(result => {
+            res.send(result);
+            res.end();
+        })
+        .catch(error => {
+            res.send(error);
+            res.end();
+        });
+});
+
+/* TODO AGREGAR UNA EMPRESA A UNA CATEGORIA */
+/* TODO ELIMINAR UNA EMPRESA DE UNA CATEGORIA */
 module.exports = router;

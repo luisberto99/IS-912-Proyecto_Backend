@@ -23,7 +23,6 @@ router.get('/', function(req, res) {
             res.end();
         })
         .catch(error => {
-            console.log('error');
             res.send(error);
             res.end();
         });
@@ -54,7 +53,6 @@ router.get('/:idEmpresa', (req, res) => {
 
 /* AGREGAR UNA NUEVA EMPRESA */
 router.post('/', (req, res) => {
-    console.log(req.body);
     let u = new empresas({
         nombreComercialEmpresa: req.body.nombreComercialEmpresa,
         RTN: req.body.RTN,
@@ -68,7 +66,6 @@ router.post('/', (req, res) => {
         categorias: req.body.categorias,
         calificacion: req.body.calificacion
     });
-    console.log(u);
     u.save().then(result => {
             res.send(result);
             res.end();
