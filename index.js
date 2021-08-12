@@ -6,6 +6,7 @@ var database = require('./modules/database');
 var clientesRouter = require('./routers/clientes-router');
 var EmpresasRouter = require('./routers/empresas-router');
 var CategoriasRouter = require('./routers/categorias-router');
+var ProductosRouter = require('./routers/productos-router')
 
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/clientes', clientesRouter);
 app.use('/empresas', EmpresasRouter);
 app.use('/categorias', CategoriasRouter);
+app.use('/productos', ProductosRouter);
 
 
 
