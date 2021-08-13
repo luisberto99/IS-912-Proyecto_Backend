@@ -2,9 +2,11 @@ const express = require('express')
 const router = express.Router();
 const motoristas = require('../models/motoristas');
 const mongoose = require('mongoose');
+var CryptoJS = require("crypto-js");
+
 
 /* OBTENER TODOS LOS MOTORISTAS VERIFICADOS */
-router.get('/',(req,res)=>{
+router.get('/verificados',(req,res)=>{
     
    motoristas.find({estadoVerificacionMotorista:true}).then(result =>{
     res.send(result);
@@ -20,7 +22,7 @@ module.exports = router;
 
 /* OBTENER LOS MOTORISTAS AUN FALTANTES POR VERIFICAR */
 
-router.get('/FaltantesVerificar',(req,res)=>{
+router.get('/faltanVerificar',(req,res)=>{
     motoristas.find({estadoVerificacionMotorista:false}).then(result =>{
         res.send(result);
         res.end();
@@ -34,33 +36,54 @@ router.get('/FaltantesVerificar',(req,res)=>{
 
 /* CREAR NUEVO MOTORISTA */
 
+
+
 router.post('/registrar',(req,res)=>{
-    motoristas.create({
-        primerNombre :req.body.primerNombre,
-        primerApellido :req.body.primerApellido,
-        numeroIdentidad :req.body.numeroIdentidad,
-        numeroTelefono :req.body.numTelefono,
-        email :req.body.email,
-        password :req.body.password,
-        domicilio :req.body.domicilio,
-        imagenPerfil :"",
-        estadoVerificacionMotorista :false ,
-        datosVerificacionMotorista : {administradorVerifica:"",fecha:""},
-        ordenesEntregadas :[] ,
-        ordenTomadaActualmente :[]
-    }).then(result =>{
-        res.send({result:true});
-        res.end();
-    }).catch(e =>{
-        res.send({result:false});
-        res.end();
+
+    motoristas.find({email:req.body.email},{email:true}).then(result =>{
+        console.log(result.result.length);
+        if(result.length == 0){
+
+            if(!emailExiste){
+                motoristas.create({
+                    primerNombre :req.body.primerNombre,
+                    primerApellido :req.body.primerApellido,
+                    numeroIdentidad :req.body.numeroIdentidad,
+                    numeroTelefono :req.body.numeroTelefono,
+                    email :req.body.email,
+                    password :req.body.password,
+                    domicilio :req.body.domicilio,
+                    estadoVerificacionMotorista :false ,
+                    IdAdministradoVerificoMotorista: "",
+                    ordenesEntregadas :[] ,
+                    ordenTomadaActualmente :[]
+                }).then(result =>{
+                    res.send({result:true});
+                    res.end();
+                }).catch(e =>{
+                    res.send({result:false});
+                    res.end();
+                })
+            }else{
+                res.send({result:false});
+                res.end();
+            }
+        }else{
+          res.send({result:false});
+          res.end();
+        }
+        
     })
+
 });
 
-/* CAMBIAR ESTADO DEL MOTORISTA A VERIFICADO */
-router.post('/verificar',(req,res)=>{
+
+
+/* CAMBIAR ESTADO DEL MOTORISTA A VERIFICADO, DESDE ADMINISTRACION */
+
+router.put('/:idMotorista/verificar',(req,res)=>{
     
-    motoristas.updateOne({_id:req.body.idMotorista},{estadoVerificacionMotorista:true}).then(result =>{
+    motoristas.updateOne({_id:req.params.idMotorista},{"RegistroVerificacionCuenta.nombre":req.body.nombreAdmin, "RegistroVerificacionCuenta.apellido":req.body.apellidoAdmin, "RegistroVerificacionCuenta._idAdmin":mongoose.Types.ObjectId(req.body.idAdmin),estadoVerificacionMotorista:true}).then(result =>{
         res.send(result);
         res.end();
     }).catch(e =>{
@@ -68,6 +91,7 @@ router.post('/verificar',(req,res)=>{
         res.end();
     });
 });
+
 
 /* OBTENER CREDENCIALES PARA VERIFICAR REGISTRO DEL MOTORISTA */
 router.get('/obtenerDatos/:email',(req,res)=>{
@@ -95,6 +119,9 @@ router.post('/newImage',(req,res)=>{
     });
 
 });
+
+
+
 
 /* ACTUALIZAR CORREO MOTORISTA */
 /* ACTUALIZAR PASSWORD MOTORISTA */

@@ -20,7 +20,9 @@ app.use('/ordenes', OrdenesRouter);
 app.use('/motoristas',MotoristasRouter)
 
 app.get('/', (req, res) => {
-    res.send('BIENVENIDO');
+    
+    res.send("Bienvenido...");
+
 });
 
 

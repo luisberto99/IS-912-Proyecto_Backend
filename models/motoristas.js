@@ -3,15 +3,14 @@ const mongoose = require('mongoose');
 var esquema = new mongoose.Schema({
     primerNombre:String,
     primerApellido:String,
-    numeroIdentidad:String,
+    numeroIdentidad:Number,
     numeroTelefono:Number,
     email:String,
     password:String,
     domicilio:String,
-    imagenPerfil:String,
-    motoristaDisponible:Boolean,
+    imagenPerfil:Object,
     estadoVerificacionMotorista: Boolean,
-    verificado: Array,
+    RegistroVerificacionCuenta: Array,
     ordenesEntregadas: Array,
     ordenTomadaActualmente:Array,
 });

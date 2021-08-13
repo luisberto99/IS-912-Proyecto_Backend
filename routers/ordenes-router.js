@@ -45,7 +45,7 @@ router.get('/tomadas',(req,res)=>{
 });
 
 /* ACTUALIZAR EL ESTADO DE UNA ORDEN */
-router.get('/update/:idOrden/:estado',(req,res)=>{
+router.put('/update/:idOrden/:estado',(req,res)=>{
     console.log('siuu',req.params.idOrden,req.params.estado);
     ordenes.updateOne({_id:req.params.idOrden},{$set:{estadoOrden:`${req.params.estado}`}}).then(result =>{
         res.send({result})
@@ -82,6 +82,7 @@ router.get('/verifyOrden/:idMotorista', (req,res)=>{
     });
 })
 
+
 /* OBTENER ORDEN TOMADA ACTUALMENTE POR EL MOTORISTA */
 router.get('/ordenTomadaMotorista/:idMotorista', (req,res)=>{
     
@@ -98,6 +99,7 @@ router.get('/ordenTomadaMotorista/:idMotorista', (req,res)=>{
         res.end();
     });
 })
+
 /* OBTENER LAS ORDENES ENTREGAS POR EL MOTORISTA */
 router.get('/ordenesEntregadas/:idMotorista', (req,res)=>{
     
@@ -109,5 +111,10 @@ router.get('/ordenesEntregadas/:idMotorista', (req,res)=>{
         res.end();
     });
 })
+
+/* ASIGNAR MOTORISTA A ORDEN */
+
+/* CREAR NUEVA ORDEN */
+
 
 module.exports = router;
