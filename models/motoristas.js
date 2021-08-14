@@ -8,7 +8,7 @@ var esquema = new mongoose.Schema({
     email:String,
     password:String,
     domicilio:String,
-    imagenPerfil:Object,
+    imagenPerfil:String,
     estadoVerificacionMotorista: Boolean,
     RegistroVerificacionCuenta: Array,
     ordenesEntregadas: Array,

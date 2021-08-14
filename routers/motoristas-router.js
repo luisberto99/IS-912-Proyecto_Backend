@@ -95,6 +95,7 @@ router.put('/:idMotorista/verificar',(req,res)=>{
         res.send({result:false});
         res.end();
     });
+    
 });
 
 
@@ -142,7 +143,6 @@ router.get('/obtenerDatos/:email',(req,res)=>{
 /* AGREGAR IMAGEN A PERFIL MOTORISTA */
 
 router.post('/newImage',(req,res)=>{
-    
     motoristas.updateOne({_id:req.body.idUser},{imagenPerfil:req.body.imagen}).then(result =>{
         res.send(result);
         res.end();
@@ -159,7 +159,7 @@ router.post('/newImage',(req,res)=>{
 router.get('/obtenerImagenPerfil/:idUser',(req,res)=>{
 
     motoristas.findOne({_id:req.params.idUser},{imagenPerfil:true}).then(result =>{
-        res.send(result.imagenPerfil);
+        res.send(result);
         res.end();
 
     }).catch(e =>{
