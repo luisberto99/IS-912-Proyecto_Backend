@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 var CryptoJS = require("crypto-js");
 
 /* APIS MOTORISTAS */
+
 /* OBTENER TODOS LOS MOTORISTAS VERIFICADOS */
 router.get('/verificados',(req,res)=>{
     
@@ -208,6 +209,7 @@ router.post('/login',(req,res)=>{
 
 router.put("/configuracion/cambiarCorreo",(req,res)=>{
 
+    // console.log(req.body.email,req.body.idUser);
     let emailEncrypt = CryptoJS.AES.encrypt(req.body.email, 'secretKeyDW2021***').toString();
 
     motoristas.updateOne({_id:req.body.idUser},{email:emailEncrypt}).then(result =>{
@@ -221,8 +223,61 @@ router.put("/configuracion/cambiarCorreo",(req,res)=>{
 
 });
 
+/* OBTENER MOTORISTA APARTIR DE SU _ID */
+
+router.get("/obtenerMotorista/:idMotorista",(req,res)=>{
+    motoristas.find({_id:req.params.idMotorista},{primerNombre:true,primerApellido:true,domicilio:true,email:true}).then(result =>{
+        let datosMotorista = result[0];
+        let emailMotorista = result[0].email;
+        
+        let bytes  = CryptoJS.AES.decrypt(emailMotorista, 'secretKeyDW2021***');
+        let emailDecrypt = bytes.toString(CryptoJS.enc.Utf8)
+        datosMotorista.email = emailDecrypt;
+        res.send(datosMotorista);
+        res.end();
+
+    }).catch(e=>{
+
+        res.send({result:false});
+        res.end();
+    })
+})
 
 /* ACTUALIZAR PASSWORD MOTORISTA */
+
+router.put("/nuevaContrasena",(req,res)=>{
+
+    motoristas.find({_id:req.body.idBiker},{password:true}).then(result =>{
+        let bytesPass  = CryptoJS.AES.decrypt(result[0].password, 'secretKeyDW2021***');
+        let passDecrypt = bytesPass.toString(CryptoJS.enc.Utf8);
+        // console.log(passDecrypt);
+        if(passDecrypt == req.body.password){
+
+            let passEncrypt = CryptoJS.AES.encrypt(req.body.newPassword, 'secretKeyDW2021***').toString();
+
+            motoristas.updateOne({_id:req.body.idBiker},{password:passEncrypt}).then(result =>{
+                res.send(result);
+                res.end();
+                
+            }).catch(e =>{
+
+                res.send({result:false});
+                res.end();
+            })
+
+        }else{
+
+            res.send({result:false});
+            res.end(); 
+        }
+
+    }).catch(e =>{
+
+        res.send({result:false});
+        res.end();
+    })
+})
+
 /* OBTENER MOTORISTAS DISPONIBLES */
 
 module.exports = router;
