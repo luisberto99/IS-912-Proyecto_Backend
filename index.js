@@ -8,6 +8,8 @@ var EmpresasRouter = require('./routers/empresas-router');
 var CategoriasRouter = require('./routers/categorias-router');
 var OrdenesRouter = require('./routers/ordenes-router');
 var MotoristasRouter = require('./routers/motoristas-router')
+var ProductosRouter = require('./routers/productos-router')
+
 const app = express();
 
 app.use(cors());
@@ -18,6 +20,10 @@ app.use('/empresas', EmpresasRouter);
 app.use('/categorias', CategoriasRouter);
 app.use('/ordenes', OrdenesRouter);
 app.use('/motoristas',MotoristasRouter)
+app.use('/productos', ProductosRouter);
+
+
+
 
 app.get('/', (req, res) => {
     

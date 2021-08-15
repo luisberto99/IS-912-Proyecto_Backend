@@ -8,7 +8,7 @@ var esquema = new mongoose.Schema({
     logo: String,
     banner: String,
     descripcion: String,
-    telefonoContacto: String,
+    telefono: String,
     estado: String,
     productosEmpresa: Array,
     categorias: Array,
