@@ -13,6 +13,7 @@ var esquema = new mongoose.Schema({
     RegistroVerificacionCuenta: Array,
     ordenesEntregadas: Array,
     ordenTomadaActualmente:Array,
+    estadoParaEntregarOrdenes:Boolean
 });
 
 module.exports = mongoose.model('motoristas',esquema);

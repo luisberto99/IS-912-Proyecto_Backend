@@ -59,14 +59,15 @@ router.post('/registrar',(req,res)=>{
             motoristas.create({
                 primerNombre :req.body.primerNombre,
                 primerApellido :req.body.primerApellido,
-                numeroIdentidad :req.body.numeroIdentidad,
-                numeroTelefono :req.body.numeroTelefono,
+                numeroIdentidad :req.body.identidad,
+                numeroTelefono :req.body.telefono,
                 email :emailCrypto,
                 password :passCrypto,
                 domicilio :req.body.domicilio,
                 estadoVerificacionMotorista :false ,
                 ordenesEntregadas :[] ,
-                ordenTomadaActualmente :[]
+                ordenTomadaActualmente :[],
+                estadoParaEntregarOrdenes:false
             }).then(result =>{
                 res.send({result:true});
                 res.end();
@@ -278,6 +279,13 @@ router.put("/nuevaContrasena",(req,res)=>{
     })
 })
 
-/* OBTENER MOTORISTAS DISPONIBLES */
+/* OBTENER MOTORISTAS DISPONIBLES Y ACTIVOS PARA TRABAJAR */
+
+router.get("/a",(req,res) =>{
+    motoristas.find({}).then(result =>{
+        res.send(result);
+        res.end();
+    })
+})
 
 module.exports = router;
