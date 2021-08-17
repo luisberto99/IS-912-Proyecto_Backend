@@ -113,6 +113,24 @@ router.get('/ordenesEntregadas/:idMotorista', (req,res)=>{
 })
 
 /* ASIGNAR MOTORISTA A ORDEN */
+router.put('/asignarMotorista',(req,res)=>{
+    ordenes.updateOne({_id:req.body.idOrden},{
+    estadoOrden:"Tomada",
+    _idMotorista: mongoose.Types.ObjectId(`${req.body.idMotorista}`),
+    nombreMotorista: `${req.body.nombreMotorista}`,
+    apellidoMotorista: req.body.apellido
+    }).then(result =>{
+        res.send({result:true})
+        res.end();
+
+    }).catch(e =>{
+        res.send({result:false});
+        res.end();
+        
+    })
+
+})
+
 
 /* CREAR NUEVA ORDEN */
 
