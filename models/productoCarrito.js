@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 var esquema = new mongoose.Schema({
     productoID: String,
-    cantidad: Number,
+    unidades: Number,
+    precio: Number,
     nota: String
 });
 

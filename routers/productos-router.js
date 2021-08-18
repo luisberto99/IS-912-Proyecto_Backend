@@ -10,9 +10,11 @@ router.get('/:idProducto', (req, res) => {
     empresas.find({
             "productosEmpresa._id": mongoose.Types.ObjectId(req.params.idProducto)
         }, {
-            "productosEmpresa.$": true
+            "productosEmpresa.$": true,
+            _id: true,
+            nombreComercialEmpresa: true
         }).then(result => {
-            res.send(result[0].productosEmpresa[0]);
+            res.send(result[0]);
             res.end();
         })
         .catch(error => {

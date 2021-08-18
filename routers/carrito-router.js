@@ -5,19 +5,78 @@ var Carrito = require('../models/carrito');
 var ProductoCarrito = require('../models/productoCarrito');
 var Cliente = require('../models/clientes');
 
-/* AGREGAR UN PRODUCTO AL CARRITO DE COMPRAS  */
-router.post('/:idCliente/', (req, res) => {
-    let producto = new ProductoCarrito({
-        _id: mongoose.Types.ObjectId(),
-        productoID: req.body.productoID,
-        cantidad: req.body.cantidad,
-        nota: req.body.nota
-    });
+/* OBTENER EMPRESAS EN CARRITO DE COMPRAS */
+router.get('/:idCliente/empresas/:idEmpresa', (req, res) => {
+    Cliente.find({
+            _id: mongoose.Types.ObjectId(req.params.idCliente),
+            "carrito.empresaID": mongoose.Types.ObjectId(req.params.idEmpresa)
+        }).then(result => {
+            res.send(result);
+            res.end();
+        })
+        .catch(error => {
+            res.send(error);
+            res.end();
+        });
+});
+
+/* AGREGAR UNA EMPRESA AL CARRITO DE COMPRAS */
+router.post('/:idCliente/empresas/', (req, res) => {
+
     Cliente.updateOne({
             _id: mongoose.Types.ObjectId(req.params.idCliente)
         }, {
             $push: {
-                carrito: producto
+                carrito: {
+                    empresaID: mongoose.Types.ObjectId(req.body.empresa.empresaID),
+                    nombreEmpresa: req.body.empresa.nombreEmpresa,
+                    subTotal: 0,
+                    "productos": [{
+                        productoID: mongoose.Types.ObjectId(req.body.empresa.producto.productoID),
+                        unidades: req.body.empresa.producto.unidades,
+                        precio: req.body.empresa.producto.precio,
+                        nota: req.body.empresa.producto.nota
+                    }]
+                }
+            }
+        }).then(result => {
+            res.send(result);
+            res.end();
+        })
+        .catch(error => {
+            res.send(error);
+            res.end();
+        });
+});
+
+/* MODIFICAR SUBTOTAL DE UNA EMPRESA */
+router.post('/:idCliente/empresas/:idEmpresa/', (req, res) => {
+    Cliente.updateOne({
+            _id: mongoose.Types.ObjectId(req.params.idCliente),
+            "carrito.empresaID": mongoose.Types.ObjectId(req.params.idEmpresa)
+        }, {
+            $set: {
+                "carrito.$.subTotal": parseInt(req.body.subTotal)
+            }
+        }).then(result => {
+            res.send(result);
+            res.end();
+        })
+        .catch(error => {
+            res.send(error);
+            res.end();
+        });
+});
+
+
+/* AGREGAR UN PRODUCTO  UNA EMPESA EN EL CARRITO DE COMPRAS  */
+router.post('/:idCliente/empresas/:idEmpresa', (req, res) => {
+    Cliente.updateOne({
+            _id: mongoose.Types.ObjectId(req.params.idCliente),
+            "carrito.empresaID": mongoose.Types.ObjectId(req.params.idEmpresa)
+        }, {
+            $push: {
+                "carrito.$.productos": req.body.producto
             }
         }).then(result => {
             res.send(result);
@@ -30,17 +89,15 @@ router.post('/:idCliente/', (req, res) => {
 });
 
 /* MODICAR UN PRODUCTO EN EL CARRITO DE COMPRAS */
-router.put('/producto/:idProductoCarrito', (req, res) => {
-    let producto = new ProductoCarrito({
-        _id: mongoose.Types.ObjectId(),
-        productoID: req.body.productoID,
-        cantidad: req.body.cantidad,
-        nota: req.body.nota
-    });
+router.put('/:idCliente/producto/:idProductoCarrito', (req, res) => {
+    console.log(req.body.producto);
     Cliente.updateOne({
-            "carrito._id": mongoose.Types.ObjectId(req.params.idProductoCarrito)
+            _id: mongoose.Types.ObjectId(req.params.idCliente),
+            "carrito.productos.productoID": mongoose.Types.ObjectId(req.params.idProductoCarrito)
         }, {
-            "carrito.$": producto
+            $set: {
+                "carrito.productos.$": req.body.producto
+            }
         }).then(result => {
             res.send(result);
             res.end();
@@ -87,6 +144,11 @@ router.delete('/:idCliente/:idProducto', (req, res) => {
             res.send(error);
             res.end();
         });
+});
+
+/* NUMERO DE PRODUCTOS EN EL CARRITO DE COMPRAS */
+router.get('/cantidad', (req, res) => {
+
 });
 
 /* TODO GENERAR ORDEN */
