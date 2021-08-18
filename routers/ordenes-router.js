@@ -57,7 +57,7 @@ router.put('/update/:idOrden/:estado',(req,res)=>{
 router.get('/obtenerOrden/:idOrden', (req,res)=>{
     
     ordenes.find({_id:req.params.idOrden}).then(result =>{
-        res.send({result: result[0]});
+        res.send(result[0]);
         res.end();
     }).catch(e =>{
         res.send(e);
@@ -116,8 +116,8 @@ router.get('/ordenesEntregadas/:idMotorista', (req,res)=>{
 router.put('/asignarMotorista',(req,res)=>{
     ordenes.updateOne({_id:req.body.idOrden},{
     estadoOrden:"Tomada",
-    _idMotorista: mongoose.Types.ObjectId(`${req.body.idMotorista}`),
-    nombreMotorista: `${req.body.nombreMotorista}`,
+    _idMotorista: req.body.idMotorista,
+    nombreMotorista: req.body.nombreMotorista,
     apellidoMotorista: req.body.apellido
     }).then(result =>{
         res.send({result:true})
@@ -126,7 +126,7 @@ router.put('/asignarMotorista',(req,res)=>{
     }).catch(e =>{
         res.send({result:false});
         res.end();
-        
+
     })
 
 })
@@ -134,5 +134,104 @@ router.put('/asignarMotorista',(req,res)=>{
 
 /* CREAR NUEVA ORDEN */
 
+router.post("/nuevaOrden",(req,res)=>{
+    let product = req.body.products 
+    
+    ordenes.create({
+        nombreCliente:req.body.nombreCliente,
+        ubicacionEntrega:req.body.ubicacion,
+        fechaOrden:req.body.fecha,
+        _idEmpresaDistribuye:req.body.idEmpresa,
+        nombreEmpresaDistribuye:req.body.nombreEmpresa,
+        productosOrden:product,
+        estadoOrden:"Disponible",
+        impuestoOrden:req.body.impuestoOrden,
+        comisionMotorista:req.body.comisionBiker,
+        totalCostoOrden:req.body.costoOrden,
+        coordenadasUbicacionOrden:req.body.coordenadasOrden,
+        "informacionPago.ultimosDigitosTargeta":req.body.digitosTargeta,
+        "informacionPago.mesVencimiento":req.body.mesVence,
+        "informacionPago.anoVencimiento":req.body.anoVence,
+        "informacionPago.nombrePropietario":req.body.nombrePropietario,
+        "informacionPago.numeroAutorizacionPago":req.body.numAutorizacionPago,
+        comisionAdministrador:req.body.comisionAdmin
+
+    }).then(result =>{
+
+        res.send({result:true});
+        res.end();
+
+    }).catch(e =>{
+        res.send({result:false});
+        res.end();
+    });
+});
+
+/* AGREGAR PRODUCTOS A ORDEN */
+router.put("/agregarProductos",(req,res)=>{
+
+    let product = req.body.products 
+    
+    ordenes.updateOne({_id:req.body.idOrden},
+        {$push:{productosOrden:product}
+        }).then(result =>{
+
+        res.send(result);
+        res.end();
+    
+    }).catch(e =>{
+        res.send({result:false});
+        res.end();
+    })
+    
+});
+
+
+/* AGREGAR PRODUCTO A ORDEN */
+router.put("/agregarProducto",(req,res)=>{
+
+    ordenes.updateOne({_id:req.body.idOrden},
+        {$push:{
+            productosOrden:{
+                nombreProducto:req.body.nombreProduct,
+                cantidad:req.body.cantidad,
+                precio:req.body.precio,
+                nota:req.body.nota}
+            }
+        }).then(result =>{
+        res.send(result);
+        res.end();
+    
+    }).catch(e =>{
+        res.send({result:false});
+        res.end();
+    })
+});
+
+/* VERIFICAR SI MOTORISTA TIENE ACTUALMENTE UNA ORDEN TOMADA. */
+
+router.get("/verificarOrdenMotorista",(req,res)=>{
+
+    ordenes.find({_idMotorista:req.body.idMotorista},{estadoOrden:true}).then(result =>{
+        let estado = true;
+        result.forEach(orden => {
+            if(orden.estadoOrden == "Tomada"){
+                res.send({result:true});
+                res.end();
+                estado = false;
+            }
+        });
+
+        if(estado){
+            res.send({result:false});
+            res.end();
+        }
+
+    }).catch(e =>{
+        res.send({result:false});
+        res.end();
+    })
+
+})
 
 module.exports = router;
