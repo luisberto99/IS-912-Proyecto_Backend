@@ -163,3 +163,20 @@ motoristas = [{
     
 }];
 
+/* ESTRUCTURA USADA DB */
+motoristasActualizado = [{
+    primerNombre :"",
+    primerApellido :"",
+    numeroIdentidad :"",
+    numeroTelefono :"",
+    email :"",
+    password :"",
+    domicilio :"",
+    imagenPerfil :"",
+    motoristaDisponible:true,
+    estadoVerificacionMotorista :true ,
+    datosVerificacionMotorista : {administradorVerifica:'leo',fecha:""},
+    ordenesEntregadas :[] ,
+    ordenTomadaActualmente :[],
+}]
+
