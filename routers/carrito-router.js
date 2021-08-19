@@ -10,8 +10,10 @@ router.get('/:idCliente/empresas/:idEmpresa', (req, res) => {
     Cliente.find({
             _id: mongoose.Types.ObjectId(req.params.idCliente),
             "carrito.empresaID": mongoose.Types.ObjectId(req.params.idEmpresa)
+        }, {
+            "carrito.productos.$": true
         }).then(result => {
-            res.send(result);
+            res.send(result[0].carrito);
             res.end();
         })
         .catch(error => {
