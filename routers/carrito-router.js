@@ -13,7 +13,7 @@ router.get('/:idCliente/empresas/:idEmpresa', (req, res) => {
         }, {
             "carrito.productos.$": true
         }).then(result => {
-            res.send(result[0].carrito);
+            res.send(result);
             res.end();
         })
         .catch(error => {
@@ -52,7 +52,7 @@ router.post('/:idCliente/empresas/', (req, res) => {
 });
 
 /* MODIFICAR SUBTOTAL DE UNA EMPRESA */
-router.post('/:idCliente/empresas/:idEmpresa/', (req, res) => {
+router.put('/:idCliente/empresas/:idEmpresa/', (req, res) => {
     Cliente.updateOne({
             _id: mongoose.Types.ObjectId(req.params.idCliente),
             "carrito.empresaID": mongoose.Types.ObjectId(req.params.idEmpresa)
@@ -73,6 +73,7 @@ router.post('/:idCliente/empresas/:idEmpresa/', (req, res) => {
 
 /* AGREGAR UN PRODUCTO  UNA EMPESA EN EL CARRITO DE COMPRAS  */
 router.post('/:idCliente/empresas/:idEmpresa', (req, res) => {
+    console.log("entrodd")
     Cliente.updateOne({
             _id: mongoose.Types.ObjectId(req.params.idCliente),
             "carrito.empresaID": mongoose.Types.ObjectId(req.params.idEmpresa)
@@ -150,9 +151,27 @@ router.delete('/:idCliente/:idProducto', (req, res) => {
 
 /* NUMERO DE PRODUCTOS EN EL CARRITO DE COMPRAS */
 router.get('/cantidad', (req, res) => {
-
+    /* TODO NUMERO DE PRODUCTOS EN EL CARRITO */
 });
 
-/* TODO GENERAR ORDEN */
+/* ELIMINAR UNA EMPRESA DEL CARRITO DE COMPRAS CUANDO SE HACE UN PEDIDIO */
+router.delete('/:idCliente/empresa/:idEmpresa', (req, res) => {
+    Cliente.updateOne({
+            _id: mongoose.Types.ObjectId(req.params.idCliente)
+        }, {
+            $pull: {
+                carrito: {
+                    empresaID: mongoose.Types.ObjectId(req.params.idEmpresa)
+                }
+            }
+        }).then(result => {
+            res.send(result);
+            res.end();
+        })
+        .catch(error => {
+            res.send(error);
+            res.end();
+        });
+});
 
 module.exports = router;

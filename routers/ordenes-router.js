@@ -48,6 +48,8 @@ router.get('/tomadas', (req, res) => {
 router.get('/cliente/:idCliente', (req, res) => {
     ordenes.find({
         _idCliente: mongoose.Types.ObjectId(req.params.idCliente)
+    }).sort({
+        _id: -1
     }).then(result => {
         res.send(result);
         res.end();
