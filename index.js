@@ -9,6 +9,7 @@ var CategoriasRouter = require('./routers/categorias-router');
 var OrdenesRouter = require('./routers/ordenes-router');
 var MotoristasRouter = require('./routers/motoristas-router')
 var ProductosRouter = require('./routers/productos-router')
+var AdministradoresRouter = require('./routers/administradores-router')
 
 const app = express();
 
@@ -21,7 +22,7 @@ app.use('/categorias', CategoriasRouter);
 app.use('/ordenes', OrdenesRouter);
 app.use('/motoristas',MotoristasRouter)
 app.use('/productos', ProductosRouter);
-
+app.use('/administracion',AdministradoresRouter);
 
 
 
