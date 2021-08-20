@@ -42,7 +42,7 @@ router.post('/login',(req,res)=>{
             let bytesPass  = CryptoJS.AES.decrypt(users[i].password, 'secretKeyDW2021***');
             let passDescript = bytesPass.toString(CryptoJS.enc.Utf8);
             
-            console.log(passDescript,emailDecrypt);
+            // console.log(passDescript,emailDecrypt);
             if(passDescript == req.body.password && emailDecrypt == req.body.email){
 
                 res.send({result:true,id:users[i]._id});
