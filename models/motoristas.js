@@ -11,8 +11,6 @@ var esquema = new mongoose.Schema({
     imagenPerfil:String,
     estadoVerificacionMotorista: Boolean,
     RegistroVerificacionCuenta: Array,
-    ordenesEntregadas: Array,
-    ordenTomadaActualmente:Array,
     estadoParaEntregarOrdenes:Boolean
 });
 

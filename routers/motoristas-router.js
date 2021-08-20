@@ -65,9 +65,8 @@ router.post('/registrar',(req,res)=>{
                 password :passCrypto,
                 domicilio :req.body.domicilio,
                 estadoVerificacionMotorista :false ,
-                ordenesEntregadas :[] ,
-                ordenTomadaActualmente :[],
-                estadoParaEntregarOrdenes:false
+                estadoParaEntregarOrdenes:false,
+                imagenPerfil:""
             }).then(result =>{
                 res.send({result:true});
                 res.end();
