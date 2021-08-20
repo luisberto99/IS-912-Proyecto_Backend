@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 router.get('/disponibles',(req,res)=>{
     ordenes.find({estadoOrden:'Disponible'}).then(result =>{
         res.send(JSON.stringify(result));
-        console.log(result);
+        // console.log(result);
         res.end();
     
     }).catch(e =>{
@@ -33,7 +33,7 @@ router.get('/',(req,res)=>{
 
 /* OBTENER TODAS LAS ORDENES TOMADAS*/
 router.get('/tomadas',(req,res)=>{
-    ordenes.find({estadoOrden:'tomada'}).then(result =>{
+    ordenes.find({estadoOrden:'Tomada'}).then(result =>{
         res.send(result);
         //console.log(result);
         res.end();
@@ -45,9 +45,9 @@ router.get('/tomadas',(req,res)=>{
 });
 
 /* ACTUALIZAR EL ESTADO DE UNA ORDEN */
-router.put('/update/:idOrden/:estado',(req,res)=>{
-    console.log('siuu',req.params.idOrden,req.params.estado);
-    ordenes.updateOne({_id:req.params.idOrden},{$set:{estadoOrden:`${req.params.estado}`}}).then(result =>{
+router.put('/updateOrden',(req,res)=>{
+    // console.log('siuu',req.body.idOrden,req.body.estado);
+    ordenes.updateOne({_id:req.body.idOrden},{$set:{estadoOrden:`${req.body.estado}`}}).then(result =>{
         res.send({result})
         res.end();
     })
@@ -91,8 +91,19 @@ router.get('/ordenTomadaMotorista/:idMotorista', (req,res)=>{
             res.send({result:false});
             res.end();
         }else{
-            res.send({result:true, orden:orden[0]});
-            res.end();
+            let status = false;
+            for (let i = 0; i < orden.length; i++) {
+                if(orden[i].estadoOrden == "Tomada"){
+                    res.send(orden[i]);
+                    res.end();
+                    status = true;
+                }
+            }
+            if(status == false){
+
+                res.send({result:false});
+                res.end();
+            }
         }
     }).catch(e =>{
         res.send(e);
@@ -210,9 +221,9 @@ router.put("/agregarProducto",(req,res)=>{
 
 /* VERIFICAR SI MOTORISTA TIENE ACTUALMENTE UNA ORDEN TOMADA. */
 
-router.get("/verificarOrdenMotorista",(req,res)=>{
+router.get("/:idMotorista/verificarOrdenMotorista",(req,res)=>{
 
-    ordenes.find({_idMotorista:req.body.idMotorista},{estadoOrden:true}).then(result =>{
+    ordenes.find({_idMotorista:req.params.idMotorista},{estadoOrden:true}).then(result =>{
         let estado = true;
         result.forEach(orden => {
             if(orden.estadoOrden == "Tomada"){

@@ -288,4 +288,23 @@ router.get("/a",(req,res) =>{
     })
 })
 
+/* VERFICAR SI EL MOTORISTA ESTA VERIFICADO POR LOS ADMINISTRADORES. */
+
+router.get('/:idMotorista/estadoVeficado',(req,res)=>{
+    motoristas.find({_id:req.params.idMotorista},{estadoVerificacionMotorista:true}).then(result =>{
+        if(result[0].estadoVerificacionMotorista){
+
+            res.send({result:true});
+            res.end();
+        }else{
+            res.send({result:false});
+            res.end();
+        }
+        
+    }).catch(e =>{ 
+        res.send({result:false});
+        res.end();
+    })
+})
+
 module.exports = router;
