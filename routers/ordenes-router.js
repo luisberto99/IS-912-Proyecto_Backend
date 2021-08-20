@@ -44,6 +44,19 @@ router.get('/tomadas', (req, res) => {
     })
 });
 
+/* OBTENER TODAS LAS ORDENES DE UN CLIENTE */
+router.get('/cliente/:idCliente', (req, res) => {
+    ordenes.find({
+        _idCliente: mongoose.Types.ObjectId(req.params.idCliente)
+    }).then(result => {
+        res.send(result);
+        res.end();
+    }).catch(e => {
+        res.send(e);
+        res.end();
+    })
+});
+
 /* ACTUALIZAR EL ESTADO DE UNA ORDEN */
 router.put('/update/:idOrden/:estado', (req, res) => {
     console.log('siuu', req.params.idOrden, req.params.estado);
