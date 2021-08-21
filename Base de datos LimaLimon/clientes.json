@@ -1,0 +1,130 @@
+[{
+  "_id": {
+    "$oid": "610e3b401b6dff4b84d4dd5f"
+  },
+  "ordenes": [],
+  "nombre": "Luis",
+  "apellido": "Medina",
+  "imagenPerfil": "user.png",
+  "correoElectronico": "luismedina@gmail.com",
+  "fechaRegistro": {
+    "$date": "2021-08-07T07:50:24.498Z"
+  },
+  "password": "Asd.456$",
+  "telefono": "381-0195",
+  "ubicacion": "req.body.ubicacion",
+  "__v": 0,
+  "carrito": []
+},{
+  "_id": {
+    "$oid": "612022d18cd3a6190043369a"
+  },
+  "carrito": [
+    {
+      "empresaID": {
+        "$oid": "61201d858cd3a619004335f2"
+      },
+      "nombreEmpresa": "Walmart",
+      "subTotal": 850,
+      "productos": [
+        {
+          "unidades": 3,
+          "precio": 130,
+          "nota": ""
+        },
+        {
+          "productoID": "61201e528cd3a61900433600",
+          "unidades": 1,
+          "precio": 220,
+          "nota": ""
+        },
+        {
+          "unidades": 4,
+          "precio": 60,
+          "nota": ""
+        }
+      ]
+    },
+    {
+      "empresaID": {
+        "$oid": "611f9fdb6fbd6a2ebc03c8b8"
+      },
+      "nombreEmpresa": "KFC",
+      "subTotal": 95,
+      "productos": [
+        {
+          "productoID": {
+            "$oid": "612012e38cd3a61900433572"
+          },
+          "unidades": 1,
+          "precio": 95,
+          "nota": ""
+        }
+      ]
+    }
+  ],
+  "ordenes": [],
+  "nombre": "Alejandra",
+  "apellido": "Corea",
+  "imagenPerfil": "https://ibb.co/4F9qLBs",
+  "fechaRegistro": {
+    "$date": "2021-08-20T21:46:57.264Z"
+  },
+  "password": "Asd.456$",
+  "telefono": "",
+  "ubicacion": "req.body.ubicacion",
+  "estado": "activo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6120256b8cd3a6190043375c"
+  },
+  "carrito": [
+    {
+      "empresaID": {
+        "$oid": "611f9fdb6fbd6a2ebc03c8b8"
+      },
+      "nombreEmpresa": "KFC",
+      "subTotal": 429,
+      "productos": [
+        {
+          "productoID": {
+            "$oid": "6120119b8cd3a6190043355b"
+          },
+          "unidades": 1,
+          "precio": 429,
+          "nota": ""
+        }
+      ]
+    },
+    {
+      "empresaID": {
+        "$oid": "611fa4296fbd6a2ebc03c8c9"
+      },
+      "nombreEmpresa": "Taco Bell",
+      "subTotal": 240,
+      "productos": [
+        {
+          "productoID": {
+            "$oid": "61201c9e8cd3a619004335e7"
+          },
+          "unidades": 1,
+          "precio": 240,
+          "nota": ""
+        }
+      ]
+    }
+  ],
+  "ordenes": [],
+  "nombre": "user",
+  "apellido": "user",
+  "imagenPerfil": "https://ibb.co/4F9qLBs",
+  "fechaRegistro": {
+    "$date": "2021-08-20T21:58:03.875Z"
+  },
+  "password": "Asd.456$",
+  "telefono": "",
+  "ubicacion": "req.body.ubicacion",
+  "estado": "activo",
+  "__v": 0
+}]

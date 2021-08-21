@@ -1,0 +1,306 @@
+[{
+  "_id": {
+    "$oid": "612021ac8cd3a6190043363d"
+  },
+  "productosOrden": [
+    {
+      "productoID": "612012648cd3a6190043356a",
+      "unidades": 2,
+      "precio": 529,
+      "nota": ""
+    }
+  ],
+  "nombreCliente": "Luis Medina",
+  "_idCliente": "610e3b401b6dff4b84d4dd5f",
+  "ubicacionEntrega": "Casa tal",
+  "fechaOrden": "2021-08-20T21:42:04.220Z",
+  "_idEmpresaDistribuye": "611f9fdb6fbd6a2ebc03c8b8",
+  "nombreEmpresaDistribuye": "KFC",
+  "estadoOrden": "Disponible",
+  "impuestoOrden": 166.2,
+  "comisionMotorista": 30,
+  "totalCostoOrden": 1274.2,
+  "coordenadasUbicacionOrden": "14.08292272333595, -87.17412668594848",
+  "comisionAdministrador": "20",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6120225b8cd3a6190043368a"
+  },
+  "productosOrden": [
+    {
+      "productoID": "611fe640aa69e362783820de",
+      "unidades": 2,
+      "precio": 130,
+      "nota": "Con mucha salsa"
+    },
+    {
+      "productoID": "612018e18cd3a619004335b3",
+      "unidades": 1,
+      "precio": 120,
+      "nota": ""
+    }
+  ],
+  "nombreCliente": "Luis Medina",
+  "_idCliente": "610e3b401b6dff4b84d4dd5f",
+  "ubicacionEntrega": "Casa tal",
+  "fechaOrden": "2021-08-20T21:44:59.710Z",
+  "_idEmpresaDistribuye": "611fa2096fbd6a2ebc03c8c2",
+  "nombreEmpresaDistribuye": "McDonald's",
+  "estadoOrden": "Disponible",
+  "impuestoOrden": 64.5,
+  "comisionMotorista": 30,
+  "totalCostoOrden": 494.5,
+  "coordenadasUbicacionOrden": "14.066383, -87.210883",
+  "comisionAdministrador": "20",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "612024bd8cd3a61900433704"
+  },
+  "productosOrden": [
+    {
+      "productoID": "612012e38cd3a61900433572",
+      "unidades": 1,
+      "precio": 95,
+      "nota": ""
+    }
+  ],
+  "nombreCliente": "Luis Medina",
+  "_idCliente": "612022d18cd3a6190043369a",
+  "ubicacionEntrega": "Casa tal",
+  "fechaOrden": "2021-08-20T21:55:09.061Z",
+  "_idEmpresaDistribuye": "611f9fdb6fbd6a2ebc03c8b8",
+  "nombreEmpresaDistribuye": "KFC",
+  "estadoOrden": "Disponible",
+  "impuestoOrden": 21.75,
+  "comisionMotorista": 30,
+  "totalCostoOrden": 166.75,
+  "coordenadasUbicacionOrden": "14.102187, -87.188531",
+  "comisionAdministrador": "20",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "612024df8cd3a61900433722"
+  },
+  "productosOrden": [
+    {
+      "productoID": "612012e38cd3a61900433572",
+      "unidades": 1,
+      "precio": 95,
+      "nota": ""
+    }
+  ],
+  "nombreCliente": "Luis Medina",
+  "_idCliente": "612022d18cd3a6190043369a",
+  "ubicacionEntrega": "Casa tal",
+  "fechaOrden": "2021-08-20T21:55:43.041Z",
+  "_idEmpresaDistribuye": "611f9fdb6fbd6a2ebc03c8b8",
+  "nombreEmpresaDistribuye": "KFC",
+  "estadoOrden": "Disponible",
+  "impuestoOrden": 21.75,
+  "comisionMotorista": 30,
+  "totalCostoOrden": 166.75,
+  "coordenadasUbicacionOrden": "14.100146, -87.210157",
+  "comisionAdministrador": "20",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6120250c8cd3a61900433740"
+  },
+  "productosOrden": [
+    {
+      "productoID": "61201de58cd3a619004335fb",
+      "unidades": 3,
+      "precio": 130,
+      "nota": ""
+    },
+    {
+      "productoID": "61201e528cd3a61900433600",
+      "unidades": 1,
+      "precio": 220,
+      "nota": ""
+    },
+    {
+      "productoID": "61201eea8cd3a61900433605",
+      "unidades": 4,
+      "precio": 60,
+      "nota": ""
+    }
+  ],
+  "nombreCliente": "Luis Medina",
+  "_idCliente": "612022d18cd3a6190043369a",
+  "ubicacionEntrega": "Casa tal",
+  "fechaOrden": "2021-08-20T21:56:28.634Z",
+  "_idEmpresaDistribuye": "61201d858cd3a619004335f2",
+  "nombreEmpresaDistribuye": "Walmart",
+  "estadoOrden": "Disponible",
+  "impuestoOrden": 135,
+  "comisionMotorista": 30,
+  "totalCostoOrden": 1035,
+  "coordenadasUbicacionOrden": "14.097769, -87.165175",
+  "comisionAdministrador": "20",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6120260a8cd3a619004337e3"
+  },
+  "productosOrden": [
+    {
+      "productoID": "6120119b8cd3a6190043355b",
+      "unidades": 1,
+      "precio": 429,
+      "nota": ""
+    }
+  ],
+  "nombreCliente": "Luis Medina",
+  "_idCliente": "6120256b8cd3a6190043375c",
+  "ubicacionEntrega": "Casa tal",
+  "fechaOrden": "2021-08-20T22:00:42.034Z",
+  "_idEmpresaDistribuye": "611f9fdb6fbd6a2ebc03c8b8",
+  "nombreEmpresaDistribuye": "KFC",
+  "estadoOrden": "Disponible",
+  "impuestoOrden": 71.85,
+  "comisionMotorista": 30,
+  "totalCostoOrden": 550.85,
+  "coordenadasUbicacionOrden": "14.102545, -87.171569",
+  "comisionAdministrador": "20",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "612026228cd3a619004337fd"
+  },
+  "productosOrden": [
+    {
+      "productoID": "61201b028cd3a619004335d0",
+      "unidades": 1,
+      "precio": 149,
+      "nota": ""
+    },
+    {
+      "productoID": "61201a818cd3a619004335c4",
+      "unidades": 1,
+      "precio": 318,
+      "nota": "Con mucho queso"
+    }
+  ],
+  "nombreCliente": "Luis Medina",
+  "_idCliente": "6120256b8cd3a6190043375c",
+  "ubicacionEntrega": "Casa tal",
+  "fechaOrden": "2021-08-20T22:01:06.632Z",
+  "_idEmpresaDistribuye": "611fa3156fbd6a2ebc03c8c6",
+  "nombreEmpresaDistribuye": "Pizza Hut",
+  "estadoOrden": "Disponible",
+  "impuestoOrden": 77.55,
+  "comisionMotorista": 30,
+  "totalCostoOrden": 594.55,
+  "coordenadasUbicacionOrden": "14.093320, -87.206282",
+  "comisionAdministrador": "20",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "612026448cd3a61900433817"
+  },
+  "productosOrden": [
+    {
+      "productoID": "61201eea8cd3a61900433605",
+      "unidades": 2,
+      "precio": 60,
+      "nota": ""
+    }
+  ],
+  "nombreCliente": "Luis Medina",
+  "_idCliente": "6120256b8cd3a6190043375c",
+  "ubicacionEntrega": "Casa tal",
+  "fechaOrden": "2021-08-20T22:01:40.208Z",
+  "_idEmpresaDistribuye": "61201d858cd3a619004335f2",
+  "nombreEmpresaDistribuye": "Walmart",
+  "estadoOrden": "Disponible",
+  "impuestoOrden": 25.5,
+  "comisionMotorista": 30,
+  "totalCostoOrden": 195.5,
+  "coordenadasUbicacionOrden": "14.056049, -87.223470",
+  "comisionAdministrador": "20",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6120265c8cd3a61900433831"
+  },
+  "productosOrden": [
+    {
+      "productoID": "612020a88cd3a6190043361a",
+      "unidades": 2,
+      "precio": 148.91,
+      "nota": ""
+    },
+    {
+      "productoID": "612021008cd3a6190043361f",
+      "unidades": 3,
+      "precio": 36.9,
+      "nota": ""
+    }
+  ],
+  "nombreCliente": "Luis Medina",
+  "_idCliente": "6120256b8cd3a6190043375c",
+  "ubicacionEntrega": "Casa tal",
+  "fechaOrden": "2021-08-20T22:02:04.337Z",
+  "_idEmpresaDistribuye": "612020408cd3a61900433614",
+  "nombreEmpresaDistribuye": "La colinia",
+  "estadoOrden": "Disponible",
+  "impuestoOrden": 68.77799999999999,
+  "comisionMotorista": 30,
+  "totalCostoOrden": 527.298,
+  "coordenadasUbicacionOrden": "14.085331, -87.162533",
+  "comisionAdministrador": "20",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "612026888cd3a61900433856"
+  },
+  "productosOrden": [
+    {
+      "productoID": "6120119b8cd3a6190043355b",
+      "unidades": 1,
+      "precio": 429,
+      "nota": ""
+    }
+  ],
+  "nombreCliente": "Luis Medina",
+  "_idCliente": "6120256b8cd3a6190043375c",
+  "ubicacionEntrega": "Casa tal",
+  "fechaOrden": "2021-08-20T22:02:48.371Z",
+  "_idEmpresaDistribuye": "611f9fdb6fbd6a2ebc03c8b8",
+  "nombreEmpresaDistribuye": "KFC",
+  "estadoOrden": "Disponible",
+  "impuestoOrden": 71.85,
+  "comisionMotorista": 30,
+  "totalCostoOrden": 550.85,
+  "coordenadasUbicacionOrden": "14.092438, -87.188787",
+  "comisionAdministrador": "20",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61202adabe305f846039c186"
+  },
+  "productosOrden": [
+    {
+      "productoID": "6120119b8cd3a6190043355b",
+      "unidades": 1,
+      "precio": 429,
+      "nota": ""
+    }
+  ],
+  "nombreCliente": "Luis Medina",
+  "_idCliente": "6120256b8cd3a6190043375c",
+  "ubicacionEntrega": "Casa tal",
+  "fechaOrden": "2021-08-20T22:21:14.393Z",
+  "_idEmpresaDistribuye": "611f9fdb6fbd6a2ebc03c8b8",
+  "nombreEmpresaDistribuye": "KFC",
+  "estadoOrden": "Disponible",
+  "impuestoOrden": 71.85,
+  "comisionMotorista": 30,
+  "totalCostoOrden": 550.85,
+  "coordenadasUbicacionOrden": "123,123",
+  "comisionAdministrador": "20",
+  "__v": 0
+}]

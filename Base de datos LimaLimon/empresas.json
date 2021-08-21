@@ -1,0 +1,415 @@
+[{
+  "_id": {
+    "$oid": "611f9fdb6fbd6a2ebc03c8b8"
+  },
+  "productosEmpresa": [
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/FJYGwB5/homeweb-megawing.jpg"
+      ],
+      "_id": {
+        "$oid": "612010d38cd3a61900433555"
+      },
+      "nombreProducto": "WINGS MEGA BOX",
+      "imagenProducto": "https://i.ibb.co/80vFw98/Wingsmegabox.png",
+      "descripcion": "16 WINGS HONEY BBQ O BUFFALO, PAPA FRITA FAMILIAR, 2 COPITAS DE SALSA , 1 REFRESCO 2 L+ COMPLEMENTO FAMILIAR GRATIS",
+      "precio": 329,
+      "estado": "activo"
+    },
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/CvSHW2k/PA-KE-NO-COCINES.jpg"
+      ],
+      "_id": {
+        "$oid": "6120119b8cd3a6190043355b"
+      },
+      "nombreProducto": "PAKE NO COCINES",
+      "imagenProducto": "https://i.ibb.co/k6zrrF2/pakenococines.png",
+      "descripcion": "8 PIEZAS DE POLLO DE TU RECETA FAVORITA, 4 COMPLEMENTOS, 2 KENTUCKY BURGERS, 4 BISCUITS, 1 REFRESCO 2 L.",
+      "precio": 429,
+      "estado": "activo"
+    },
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/R3SRShL/Home-ubb-1136-x-334.jpg"
+      ],
+      "_id": {
+        "$oid": "612012648cd3a6190043356a"
+      },
+      "nombreProducto": "ULTIMATE BIG BOX",
+      "imagenProducto": "https://i.ibb.co/PZZ5zkD/bigboxUt.png",
+      "descripcion": "10 PIEZAS DE POLLO DE TU RECETA FAVORITA, 8 COMPLEMENTOS, 12 NUGGETS, 6 BISCUITS, 1 REFRESCO 2 L.",
+      "precio": 529,
+      "estado": "activo"
+    },
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/Lt1PMwT/Home-KFCCHicken.jpg"
+      ],
+      "_id": {
+        "$oid": "612012e38cd3a61900433572"
+      },
+      "nombreProducto": "KENTUCKY CHICKEN SANDWICH",
+      "imagenProducto": "https://i.ibb.co/ZYWbRmH/kfc-chickensolo.png",
+      "descripcion": "ES UN SANDWICH DE PRIMER NIVEL, ELABORADO CON PECHUGA DE POLLO EXTRA CRISPY, PAN BRIOCHE CON MANTEQUILLA, MAYONESA PREMIUM Y PEPINILLOS.",
+      "precio": 95,
+      "estado": "activo"
+    }
+  ],
+  "categorias": [
+    "611444cbb7755367dccbd0e5"
+  ],
+  "nombreComercialEmpresa": "KFC",
+  "RTN": "3423423234",
+  "direccion": "Tegucigalpa",
+  "logo": "https://i.ibb.co/GnR7vvw/KFC-Logotipo-2006-2014.png",
+  "banner": "https://i.ibb.co/cDB7QQ1/1591616374-194956-1591616478-noticia-normal.jpg",
+  "descripcion": "Tegucigalpa",
+  "estado": "activo",
+  "calificacion": 4,
+  "__v": 0,
+  "telefono": "12345678"
+},{
+  "_id": {
+    "$oid": "611fa2096fbd6a2ebc03c8c2"
+  },
+  "productosEmpresa": [
+    {
+      "_id": {
+        "$oid": "611fe640aa69e362783820de"
+      },
+      "nombreProducto": "KFC",
+      "imagenProducto": "https://i.ibb.co/K72XMp1/basketstrips.png",
+      "imagenesCarrusel": [
+        "https://i.ibb.co/T8WCwCg/Captura-de-pantalla-2021-08-20-092926.png"
+      ],
+      "descripcion": "STRIPS BASKET",
+      "precio": 130,
+      "estado": "activo"
+    },
+    {
+      "_id": {
+        "$oid": "611fe7a6aa69e362783820e5"
+      },
+      "nombreProducto": "STRIPS BASKET",
+      "imagenProducto": "https://i.ibb.co/T8WCwCg/Captura-de-pantalla-2021-08-20-092926.png",
+      "imagenesCarrusel": [
+        "https://i.ibb.co/K72XMp1/basketstrips.png"
+      ],
+      "descripcion": "KENTUCKY CHICKEN SANDWICH",
+      "precio": 4785,
+      "estado": "activo"
+    },
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/mDMgcJ2/mcdonalds-coca-interna-1.jpg"
+      ],
+      "_id": {
+        "$oid": "612018e18cd3a619004335b3"
+      },
+      "nombreProducto": "Big Mac",
+      "imagenProducto": "https://i.ibb.co/8Pfk74k/t-mcdonalds-Big-Mac.jpg",
+      "descripcion": "La perfección hecha hamburguesa que te hace agua la boca comienza con dos patties de 100% carne y la salsa Big Mac®, todo dentro de un pan con semillas de ajonjolí. Viene cubierta con pepinillos, crujiente lechuga, cebollas y queso americano para lograr ese sabor único de la hamburguesa 100% de carne. ",
+      "precio": 120,
+      "estado": "activo"
+    },
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/C2MtqzQ/Homepage-Carousel-1168x520v2.jpg"
+      ],
+      "_id": {
+        "$oid": "612019748cd3a619004335b8"
+      },
+      "nombreProducto": " The Saweetie Meal",
+      "imagenProducto": "https://i.ibb.co/WgYXpNW/t-saweetie-meal.jpg",
+      "descripcion": "Inspirada en el regalo de Saweetie para mezclar comidas para hacer sus propias creaciones únicas, The Saweetie Meal es el sueño de un hacker de comidas hecho realidad: un Big Mac® , Chicken McNuggets® de 4 piezas , papas fritas medianas , un Sprite mediano con Tangy BBQ y una edición especial de Saweetie Salsas 'N Sour. La comida Saweetie tiene 1340 calorías.",
+      "precio": 180,
+      "estado": "activo"
+    },
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/PYWwNgw/Home-Page-1-PUB-1168x520.jpg"
+      ],
+      "_id": {
+        "$oid": "612019e78cd3a619004335bd"
+      },
+      "nombreProducto": "Crispy Chicken Sandwich",
+      "imagenProducto": "https://i.ibb.co/NCV0yJ4/t-mcdonalds-spicy-deluxe-crispy-chicken-sandwich.jpg",
+      "descripcion": "Los ingredientes del sándwich de pollo crujiente picante de lujo",
+      "precio": 180,
+      "estado": "activo"
+    }
+  ],
+  "categorias": [
+    "611444cbb7755367dccbd0e5"
+  ],
+  "nombreComercialEmpresa": "McDonald's",
+  "RTN": "987456321",
+  "direccion": "Tegucigalpa, colonia Luis Landa bloque 4",
+  "logo": "https://i.ibb.co/Zgbz5LZ/1200px-Mc-Donald-s-Golden-Arches-svg.png",
+  "banner": "https://i.ibb.co/qmnncyn/3b7c9391b0dba6a892abd4c244e4f8c6.jpg",
+  "descripcion": "Tegucigalpa, colonia Luis Landa bloque 4",
+  "estado": "activo",
+  "calificacion": 2,
+  "__v": 0,
+  "telefono": "89745678"
+},{
+  "_id": {
+    "$oid": "611fa3156fbd6a2ebc03c8c6"
+  },
+  "productosEmpresa": [
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/Db7JYvq/Web-home-1136x334.jpg"
+      ],
+      "_id": {
+        "$oid": "61201a818cd3a619004335c4"
+      },
+      "nombreProducto": "BUFFALO CHICKEN",
+      "imagenProducto": "https://i.ibb.co/Q8Rznn3/Web-Buffalo-Chicken.png",
+      "descripcion": "DELICIOSA COMBINACIÓN DE POLLO BAÑADO EN SALSA BUFFALO , PEPPERONI Y ABUNDANTE QUESO MOZZARELLA, DECORADA CON ADEREZO RANCH. DISFRÚTALA EN TU MASA PREFERIDA.",
+      "precio": 318,
+      "estado": "activo"
+    },
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/xSN5cWh/web-banner-home.jpg"
+      ],
+      "_id": {
+        "$oid": "61201abe8cd3a619004335cb"
+      },
+      "nombreProducto": "CALZONE SUPREMO",
+      "imagenProducto": "https://i.ibb.co/WnRxJyF/CALZONE-SUPREMO.png",
+      "descripcion": "COMBINACIÓN DE CARNE DE RES Y CERDO, PEPPERONI, CHAMPIÑONES, CHILE VERDE, CEBOLLA Y SALSA BARBACOA.",
+      "precio": 119,
+      "estado": "activo"
+    },
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/4RWgvtp/Banner-Web-Galleta-1136x339.jpg"
+      ],
+      "_id": {
+        "$oid": "61201b028cd3a619004335d0"
+      },
+      "nombreProducto": "HERSHEY´S CHOCOLATE CHIP",
+      "imagenProducto": "https://i.ibb.co/1TXR9j4/GALLETA.png",
+      "descripcion": "Crujiente galleta horneada con chispas de chocolate Hershey´s.",
+      "precio": 149,
+      "estado": "activo"
+    },
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/QJ1qTMT/Slider-triple-wow-box.jpg"
+      ],
+      "_id": {
+        "$oid": "61201b3b8cd3a619004335d5"
+      },
+      "nombreProducto": "TRIPLE WOW BOX",
+      "imagenProducto": "https://i.ibb.co/JdTXr1m/Triple-WOWBOX.jpg",
+      "descripcion": "2 PIZZAS GIGANTES DE 1 INGREDIENTE, 10 PALITROQUES Y 12 PECHURRRICAS.",
+      "precio": 599,
+      "estado": "activo"
+    }
+  ],
+  "categorias": [
+    "611444cbb7755367dccbd0e5"
+  ],
+  "nombreComercialEmpresa": "Pizza Hut",
+  "RTN": "9846518465",
+  "direccion": "Tegucigalpa, frente a la UNAH",
+  "logo": "https://i.ibb.co/k6vdgf9/historia-de-pizza-hut-2.png",
+  "banner": "https://i.ibb.co/KLpR4dW/Pizza-Hut-Now-That-s-Delivering.jpg",
+  "descripcion": "Tegucigalpa, frente a la UNAH",
+  "estado": "activo",
+  "calificacion": 0,
+  "__v": 0,
+  "telefono": "777777"
+},{
+  "_id": {
+    "$oid": "611fa4296fbd6a2ebc03c8c9"
+  },
+  "productosEmpresa": [
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/xfm22QT/SLIDER-WEB-REDBULLSANDIA-02-AGOSTO-CAST-1500x628.jpg"
+      ],
+      "_id": {
+        "$oid": "61201bd68cd3a619004335dd"
+      },
+      "nombreProducto": "RED BULL",
+      "imagenProducto": "https://i.ibb.co/W618ZCV/BODEGON-WEB-560-X410-BEBIDAS-REDBULLS-30-JULIO.jpg",
+      "descripcion": "Si te gusta estar siempre a tope de power pídete un RED BULL Energy Drink, Sugarfree o Red Edition Sandía y siente el TACOPOWER. Puedes pedirlo solo o con tu menú.",
+      "precio": 45,
+      "estado": "activo"
+    },
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/xXqbCJF/Captura-de-pantalla-2021-08-20-151839.png"
+      ],
+      "_id": {
+        "$oid": "61201c5d8cd3a619004335e2"
+      },
+      "nombreProducto": "CHEESE BACON QUESADILLA",
+      "imagenProducto": "https://i.ibb.co/JKTLSM3/REF-BODEGON-WEB-560-X410-MENU-BACONQUESADILLA-18-AGO.jpg",
+      "descripcion": "Lo sabemos, este menú es de otro mundo. No hay nada más top que una jugosa quesadilla de carne picada, pico de gallo, bacon, salsa Creamy, mezcla de 3 quesos y ¡Queso gratinado por encima! Muuuuucho queso",
+      "precio": 220,
+      "estado": "activo"
+    },
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/3BsvJzJ/Captura-de-pantalla-2021-08-20-151946.png"
+      ],
+      "_id": {
+        "$oid": "61201c9e8cd3a619004335e7"
+      },
+      "nombreProducto": "TRES TACOS SUPREME",
+      "imagenProducto": "https://i.ibb.co/m5XGHgx/BODEGON-WEB-560-X410-3-TACOS-30-ABRIL.jpg",
+      "descripcion": " Si sueñas con tacos y te los comerías a cualquier hora del día, felicidades eres un #TACOLOVER en toda regla y este es tu menú. ¡3 súper Tacos Supreme! con crema agria, tomate, lechuga, queso Cheddar y tu carne favorita. Acompañado del complemento que tú quieras: ensalada, nachos con queso o patatas Mexican. Y con tu bebida favorita. Este es el menú de los #REALTACOLOVERS.",
+      "precio": 240,
+      "estado": "activo"
+    },
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/sQ1Y0Xk/Captura-de-pantalla-2021-08-20-152056.png"
+      ],
+      "_id": {
+        "$oid": "61201ced8cd3a619004335ec"
+      },
+      "nombreProducto": "BIG COMBO DÚO",
+      "imagenProducto": "https://i.ibb.co/hVnynCn/01-BODEGON-WEB-560-X410-BIGCOMBOS-DUO-09-FEB.jpg",
+      "descripcion": "Compartir siempre es difícil, nos parece que nunca hay suficiente y además a cada uno nos gusta una cosa. Esto no te va a pasar con nuestro BIG COMBO DÚO, ya que se compone de un delicioso Crunchywrap de carne picada, una Quesadilla de carne picada, unos crujientes nachos Supreme, 2 sabrosas patatas Mexican, 2 Chocoball y 2 bebidas. Mola compartir en Taco Bell.",
+      "precio": 290,
+      "estado": "activo"
+    }
+  ],
+  "categorias": [
+    "611444cbb7755367dccbd0e5"
+  ],
+  "nombreComercialEmpresa": "Taco Bell",
+  "RTN": "654654213",
+  "direccion": "Tegucigalpa",
+  "logo": "https://i.ibb.co/t47QYfy/1200px-Taco-Bell-2016-svg.png",
+  "banner": "https://i.ibb.co/gjGqhQp/Taco-Bell-Quesalupa-1.jpg",
+  "descripcion": "Tegucigalpa",
+  "estado": "activo",
+  "calificacion": 0,
+  "__v": 0,
+  "telefono": "89798418"
+},{
+  "_id": {
+    "$oid": "61201d858cd3a619004335f2"
+  },
+  "productosEmpresa": [
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/k0ttm54/aceite-de-oliva.jpg"
+      ],
+      "_id": {
+        "$oid": "61201de58cd3a619004335fb"
+      },
+      "nombreProducto": "Aceite Sensat Oliva Puro",
+      "imagenProducto": "https://i.ibb.co/xJt9zYY/183797-800-600.jpg",
+      "descripcion": "Aceite Sensat Oliva Puro Botella - 500ml",
+      "precio": 130,
+      "estado": "activo"
+    },
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/R6rbC8R/images.jpg"
+      ],
+      "_id": {
+        "$oid": "61201e528cd3a61900433600"
+      },
+      "nombreProducto": "Nido Forticrece 2160G",
+      "imagenProducto": "https://i.ibb.co/K2z0qx1/191745-800-600.jpg",
+      "descripcion": "Nido Forticrece 2160G",
+      "precio": 220,
+      "estado": "activo"
+    },
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/pL18fh7/D-NQ-NP-912744-MLC29145205332-012019-O.jpg"
+      ],
+      "_id": {
+        "$oid": "61201eea8cd3a61900433605"
+      },
+      "nombreProducto": "Toalla San Always Total Suave",
+      "imagenProducto": "https://i.ibb.co/Vt2DTrr/171215-800-600.jpg",
+      "descripcion": "oallas femenina Hechas con un material FlexFoam ultraligero, esta almohadilla revolucionaria que se ajusta a la forma absorbe 10 veces mas",
+      "precio": 60,
+      "estado": "activo"
+    }
+  ],
+  "categorias": [
+    "611444e9b7755367dccbd0e7",
+    "61144517b7755367dccbd0eb"
+  ],
+  "nombreComercialEmpresa": "Walmart",
+  "RTN": "988465872165",
+  "direccion": "Tegucigalpa, Cascadas mall",
+  "logo": "https://i.ibb.co/2nDgw91/descarga.png",
+  "banner": "https://i.ibb.co/NjwyPBs/450-1000.jpg",
+  "descripcion": "Tegucigalpa, Cascadas mall",
+  "estado": "activo",
+  "calificacion": 0,
+  "telefono": "32458741",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "612020408cd3a61900433614"
+  },
+  "productosEmpresa": [
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/DwDpdLx/granola-cuchara.jpg"
+      ],
+      "_id": {
+        "$oid": "612020a88cd3a6190043361a"
+      },
+      "nombreProducto": "Granola Post Honey Bunches",
+      "imagenProducto": "https://i.ibb.co/N6FMQw1/188861-1600-1600.jpg",
+      "descripcion": "Granola Post Honey Bunches Of Oats 11 Oz",
+      "precio": 148.91,
+      "estado": "activo"
+    },
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/g4w2d3T/assets-search-agua-lacolonia.png"
+      ],
+      "_id": {
+        "$oid": "612021008cd3a6190043361f"
+      },
+      "nombreProducto": "Agua Alkalina Essential ",
+      "imagenProducto": "https://i.ibb.co/rfFhKLr/232857-800-800.jpg",
+      "descripcion": "Agua Alkalina Essential Everyday 1 Lt",
+      "precio": 36.9,
+      "estado": "activo"
+    },
+    {
+      "imagenesCarrusel": [
+        "https://i.ibb.co/c2zj5j9/assets-search-microban-lacolonia.png"
+      ],
+      "_id": {
+        "$oid": "6120212d8cd3a61900433624"
+      },
+      "nombreProducto": "Limpiador Multiusos",
+      "imagenProducto": "https://i.ibb.co/bRYF8ZX/233201-1600-1600.jpg",
+      "descripcion": "Limpiador Multiusos Microban Esencias Frescas 32 oz",
+      "precio": 152.9,
+      "estado": "activo"
+    }
+  ],
+  "categorias": [
+    "611444e9b7755367dccbd0e7"
+  ],
+  "nombreComercialEmpresa": "La colinia",
+  "RTN": "54964651654",
+  "direccion": "Tegucigalpa, Villas del sol",
+  "logo": "https://i.ibb.co/vc7rk4b/lacolonia-Logo.png",
+  "banner": "https://i.ibb.co/WFKrS6t/supermercados-la-colonia-el-pais-hn.jpg",
+  "descripcion": "Tegucigalpa, Villas del sol",
+  "estado": "activo",
+  "calificacion": 0,
+  "telefono": "6545479844",
+  "__v": 0
+}]
