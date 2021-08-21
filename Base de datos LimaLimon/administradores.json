@@ -1,0 +1,46 @@
+[{
+  "_id": {
+    "$oid": "611f4f1971e4b53d10d8906d"
+  },
+  "primerNombre": "Admin",
+  "primerApellido": "Web",
+  "password": "U2FsdGVkX19bCexCUcv9xv/pL9LEWHZBYkybvDQ1dMk=",
+  "email": "U2FsdGVkX1/f0xVgtnH1WKk2Uq3iFm9lg5W/Rcu3mpU=",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611f4f5471e4b53d10d8906f"
+  },
+  "primerNombre": "Admin",
+  "primerApellido": "DesarrolloWeb",
+  "password": "U2FsdGVkX1+1h184AAykD6nd+nEoNYhagJ9FpapHN5k=",
+  "email": "U2FsdGVkX18vg+HeIBqG0joB3QDbcjDLdHnNG2QDeIlQnecgeSw6saYIeg4R0nfA",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611f4f5f71e4b53d10d89071"
+  },
+  "primerNombre": "Admin",
+  "primerApellido": "DesarrolloWeb",
+  "password": "U2FsdGVkX18LSGIilaaPQKpLU1zdGmZYLChSWHajLS0=",
+  "email": "U2FsdGVkX1921TOqhX6iSynq+F8dpi2FfUFj1RVthdWcd1wcDZSKBWXZQKpb89PM",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611f4fb371e4b53d10d89073"
+  },
+  "primerNombre": "Luis",
+  "primerApellido": "Banegas",
+  "password": "U2FsdGVkX19JuDqXQwq481EcpClFiNOP8ZYYKVaYr44=",
+  "email": "U2FsdGVkX1/v2ZIIfxVwjSjrPvie2nQQYr0Kd1JWNLlX/ACzRgXdBvGQpEmqeoPJ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611f4fc171e4b53d10d89075"
+  },
+  "primerNombre": "Luis",
+  "primerApellido": "Medina",
+  "password": "U2FsdGVkX19nTM/I3eqPtRIsXdSDkE00B7dhgZ/7GoY=",
+  "email": "U2FsdGVkX1/UzstLRtcbR5Np6zVEc6FurEodQaMWMjHV4lgJsZHVsV8w32DiO3zk",
+  "__v": 0
+}]
