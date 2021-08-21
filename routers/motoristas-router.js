@@ -65,7 +65,7 @@ router.post('/registrar',(req,res)=>{
                 password :passCrypto,
                 domicilio :req.body.domicilio,
                 estadoVerificacionMotorista :false ,
-                estadoParaEntregarOrdenes:false,
+                estadoParaEntregarOrdenes:'Desconectado',
                 imagenPerfil:""
             }).then(result =>{
                 res.send({result:true});
@@ -280,8 +280,8 @@ router.put("/nuevaContrasena",(req,res)=>{
 
 /* OBTENER MOTORISTAS DISPONIBLES Y ACTIVOS PARA TRABAJAR */
 
-router.get("/a",(req,res) =>{
-    motoristas.find({}).then(result =>{
+router.get("/disponibles",(req,res) =>{
+    motoristas.find({estadoParaEntregarOrdenes:'Disponible'},{primerNombre:true,primerApellido:true,imagenPerfil:true}).then(result =>{
         res.send(result);
         res.end();
     })
@@ -301,6 +301,19 @@ router.get('/:idMotorista/estadoVeficado',(req,res)=>{
         }
         
     }).catch(e =>{ 
+        res.send({result:false});
+        res.end();
+    })
+})
+
+/* CAMBIAR ESTADO DE MOTORISTA A ACTIVO, EN PROCESO DE ENTREGA  O DESCONECTADO. */
+
+router.put('/actualizarEstadoo',(req,res)=>{
+    // console.log(req.body.id,req.body.estado);
+    motoristas.updateOne({_id:req.body.id},{estadoParaEntregarOrdenes:req.body.estado}).then(result =>{
+        res.send({result:true});
+        res.end();
+    }).catch(e=>{
         res.send({result:false});
         res.end();
     })

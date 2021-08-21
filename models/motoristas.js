@@ -11,7 +11,7 @@ var esquema = new mongoose.Schema({
     imagenPerfil:String,
     estadoVerificacionMotorista: Boolean,
     RegistroVerificacionCuenta: Array,
-    estadoParaEntregarOrdenes:Boolean
+    estadoParaEntregarOrdenes:String
 });
 
 module.exports = mongoose.model('motoristas',esquema);

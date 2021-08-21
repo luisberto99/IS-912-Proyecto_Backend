@@ -140,11 +140,11 @@ router.get('/ordenesEntregadas/:idMotorista', (req, res) => {
 
 /* ASIGNAR MOTORISTA A ORDEN */
 router.put('/asignarMotorista', (req, res) => {
-    ordenes.updateOne({ _id: req.body.orden.idOrden }, {
+    ordenes.updateOne({ _id: req.body.idOrden }, {
         estadoOrden: "Tomada",
-        _idMotorista: req.body.orden.idMotorista,
-        nombreMotorista: req.body.orden.nombreMotorista,
-        apellidoMotorista: req.body.orden.apellido
+        _idMotorista: req.body.idMotorista,
+        nombreMotorista: req.body.nombreMotorista,
+        apellidoMotorista: req.body.apellido
     }).then(result => {
         res.send({ result: true })
         res.end();
