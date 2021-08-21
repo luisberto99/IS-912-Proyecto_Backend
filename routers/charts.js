@@ -24,5 +24,22 @@ router.get('/ordenesPorCliente', (req, res) => {
         });
 });
 
+router.get('/ordenesPorEmpresa', (req, res) => {
+    ordenes.aggregate([{
+                $unwind: '$nombreEmpresaDistribuye'
+            },
+            {
+                $sortByCount: '$nombreEmpresaDistribuye'
+            }
+        ]).then(result => {
+            res.send(result);
+            res.end();
+        })
+        .catch(error => {
+            res.send(error);
+            res.end();
+        });
+});
+
 
 module.exports = router;
