@@ -10,24 +10,26 @@ var OrdenesRouter = require('./routers/ordenes-router');
 var MotoristasRouter = require('./routers/motoristas-router')
 var ProductosRouter = require('./routers/productos-router')
 var AdministradoresRouter = require('./routers/administradores-router')
+var CarritoRouter = require('./routers/carrito-router');
 
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use('/clientes', clientesRouter);
 app.use('/empresas', EmpresasRouter);
 app.use('/categorias', CategoriasRouter);
 app.use('/ordenes', OrdenesRouter);
-app.use('/motoristas',MotoristasRouter)
+app.use('/motoristas', MotoristasRouter)
 app.use('/productos', ProductosRouter);
-app.use('/administracion',AdministradoresRouter);
+app.use('/administracion', AdministradoresRouter);
+app.use('/carrito', CarritoRouter)
 
 
 
 app.get('/', (req, res) => {
-    
+
     res.send("Bienvenido...");
 
 });

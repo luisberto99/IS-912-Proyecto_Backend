@@ -14,4 +14,4 @@ var esquema = new mongoose.Schema({
     estado: String
 });
 
-module.exports = mongoose.model('cliente', esquema);
+module.exports = mongoose.model('Cliente', esquema);

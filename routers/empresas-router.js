@@ -10,14 +10,7 @@ var mongoose = require('mongoose');
 
 /* OBTENER TODAS LAS EMPRESAS */
 router.get('/', function(req, res) {
-    empresas.find({}, {
-            _id: true,
-            nombreComercialEmpresa: true,
-            banner: true,
-            descripcion: true,
-            calificacion: true,
-            RTN: true
-        })
+    empresas.find({}, {})
         .then(result => {
             res.send(result);
             res.end();
@@ -33,14 +26,7 @@ router.get('/', function(req, res) {
 router.get('/:idEmpresa', (req, res) => {
     empresas.find({
             _id: req.params.idEmpresa
-        }, {
-            _id: true,
-            nombreComercialEmpresa: true,
-            descripcion: true,
-            banner: true,
-            calificacion: true,
-            productosEmpresa: true
-        })
+        }, {})
         .then(result => {
             res.send(result[0]);
             res.end()
@@ -54,17 +40,18 @@ router.get('/:idEmpresa', (req, res) => {
 /* AGREGAR UNA NUEVA EMPRESA */
 router.post('/', (req, res) => {
     let u = new empresas({
-        nombreComercialEmpresa: req.body.nombreComercialEmpresa,
-        RTN: req.body.RTN,
-        direccion: req.body.direccion,
+        nombreComercialEmpresa: req.body.empresa.nombreComercialEmpresa,
+        RTN: req.body.empresa.RTN,
+        direccion: req.body.empresa.direccion,
         logo: req.body.logo,
         banner: req.body.banner,
-        descripcion: req.body.descripcion,
-        telefonoContacto: req.body.telefonoContacto,
-        estado: req.body.estado,
-        productosEmpresa: req.body.productosEmpresa,
+        descripcion: req.body.empresa.descripcion,
+        telefonoContacto: req.body.empresa.telefonoContacto,
+        estado: "activo",
+        productosEmpresa: [],
         categorias: req.body.categorias,
-        calificacion: req.body.calificacion
+        calificacion: 0,
+        telefono: req.body.empresa.telefono
     });
     u.save().then(result => {
             res.send(result);
@@ -79,20 +66,23 @@ router.post('/', (req, res) => {
 
 /* ACTUALIZAR UNA EMPRESA */
 router.put('/:id', (req, res) => {
-    empresas.update({
+    console.log(req.body)
+    empresas.updateOne({
             _id: req.params.id
         }, {
-            nombreComercialEmpresa: req.body.nombreComercialEmpresa,
-            RTN: req.body.RTN,
-            direccion: req.body.direccion,
-            logo: req.body.logo,
-            banner: req.body.banner,
-            descripcion: req.body.descripcion,
-            telefonoContacto: req.body.telefonoContacto,
-            estado: req.body.estado,
-            productosEmpresa: req.body.productosEmpresa,
-            categorias: req.body.categorias,
-            calificacion: req.body.calificacion
+            $set: {
+                nombreComercialEmpresa: req.body.empresa.nombreComercialEmpresa,
+                RTN: req.body.empresa.RTN,
+                direccion: req.body.empresa.direccion,
+                logo: req.body.logo,
+                banner: req.body.banner,
+                descripcion: req.body.empresa.descripcion,
+                telefonoContacto: req.body.empresa.telefonoContacto,
+                estado: req.body.empresa.estado,
+                categorias: req.body.empresa.categorias,
+                calificacion: req.body.empresa.calificacion,
+                telefono: req.body.empresa.telefono
+            }
         }).then(result => {
             res.send(result);
             res.end();
@@ -142,17 +132,18 @@ router.get('/:idEmpresa/productos', (req, res) => {
 
 /* AGREGAR UN NUEVO PRODUCTO */
 router.post('/:idEmpresa/productos', (req, res) => {
+    console.log(req.body)
     let producto = new productos({
         _id: mongoose.Types.ObjectId(),
-        nombreProducto: req.body.nombreProducto,
-        imagenProducto: req.body.imagenProducto,
-        imagenesCarrusel: req.body.imagenesCarrusel, //carrucel
-        descripcion: req.body.descripcion,
-        precio: req.body.precio,
-        estado: "Activo"
+        nombreProducto: req.body.producto.nombreProducto,
+        imagenProducto: req.body.img,
+        imagenesCarrusel: req.body.banner, //carrucel
+        descripcion: req.body.producto.descripcion,
+        precio: req.body.producto.precio,
+        estado: "activo"
     });
     empresas.updateOne({
-            _id: mongoose.Types.ObjectId(req.params.idEmpresa)
+            _id: mongoose.Types.ObjectId(req.body.producto.empresa)
         }, {
             $push: {
                 productosEmpresa: producto
