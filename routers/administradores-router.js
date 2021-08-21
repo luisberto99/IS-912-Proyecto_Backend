@@ -74,4 +74,27 @@ router.get("/:idAdmin/datos",(req,res)=>{
     })
 
 })
+
+/* VERIFICAR EXISTE ADMIN */
+
+router.get("/:idAdmin/verificar",(req,res)=>{
+
+    administradores.find({
+        _id:req.params.idAdmin
+        }).then(result =>{
+
+        if(result.length >0){
+
+            res.send({result:true});
+            res.end();
+        }else{
+
+            res.send({result:false});
+            res.end();
+        }
+    }).catch(e =>{
+        res.send({result:false});
+        res.end();
+    })
+})
 module.exports = router;
