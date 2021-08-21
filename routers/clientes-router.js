@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
         nombre: req.body.nombre,
         apellido: req.body.apellido,
         imagenPerfil: "https://ibb.co/4F9qLBs",
-        correoElectronico: req.body.correoElectronico,
+        correoElectronico: req.body.email,
         fechaRegistro: new Date,
         password: req.body.password,
         telefono: "",

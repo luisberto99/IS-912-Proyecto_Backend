@@ -74,7 +74,8 @@
   "telefono": "",
   "ubicacion": "req.body.ubicacion",
   "estado": "activo",
-  "__v": 0
+  "__v": 0,
+  "correoElectronico": "alejandra@gmail.com"
 },{
   "_id": {
     "$oid": "6120256b8cd3a6190043375c"
@@ -121,6 +122,43 @@
   "imagenPerfil": "https://ibb.co/4F9qLBs",
   "fechaRegistro": {
     "$date": "2021-08-20T21:58:03.875Z"
+  },
+  "password": "Asd.456$",
+  "telefono": "",
+  "ubicacion": "req.body.ubicacion",
+  "estado": "activo",
+  "__v": 0,
+  "correoElectronico": "user@gmail.com"
+},{
+  "_id": {
+    "$oid": "6121331b4575f33224d026c0"
+  },
+  "carrito": [],
+  "ordenes": [],
+  "nombre": "Dulce",
+  "apellido": "Corea",
+  "imagenPerfil": "https://ibb.co/4F9qLBs",
+  "fechaRegistro": {
+    "$date": "2021-08-21T17:08:43.046Z"
+  },
+  "password": "Asd.456$",
+  "telefono": "",
+  "ubicacion": "req.body.ubicacion",
+  "estado": "activo",
+  "__v": 0,
+  "correoElectronico": "dulce@gmail.com"
+},{
+  "_id": {
+    "$oid": "612133aaf9bd303b1cb46ac9"
+  },
+  "carrito": [],
+  "ordenes": [],
+  "nombre": "Gustavo",
+  "apellido": "Perez",
+  "imagenPerfil": "https://ibb.co/4F9qLBs",
+  "correoElectronico": "perez@gmail.com",
+  "fechaRegistro": {
+    "$date": "2021-08-21T17:11:06.098Z"
   },
   "password": "Asd.456$",
   "telefono": "",

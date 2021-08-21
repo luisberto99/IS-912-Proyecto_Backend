@@ -3,8 +3,8 @@
     "$oid": "611444cbb7755367dccbd0e5"
   },
   "nombreCategoria": "Comidas",
-  "icono": "comidaIcon.png",
-  "img": "comida.png",
+  "icono": "https://i.ibb.co/2kkbLyW/WHOPPER-0.png",
+  "img": "https://i.ibb.co/2kkbLyW/WHOPPER-0.png",
   "color": "#D23F47",
   "fechaCreacion": {
     "$date": "2021-08-11T21:44:43.960Z"
@@ -16,8 +16,8 @@
     "$oid": "611444e9b7755367dccbd0e7"
   },
   "nombreCategoria": "Supermercado",
-  "icono": "supermercadoIcon.png",
-  "img": "supermercado.png",
+  "icono": "https://i.ibb.co/LYFHXn7/abarrotes.png",
+  "img": "https://i.ibb.co/LYFHXn7/abarrotes.png",
   "color": "#FFA93A",
   "fechaCreacion": {
     "$date": "2021-08-11T21:45:13.165Z"
@@ -26,24 +26,11 @@
   "__v": 0
 },{
   "_id": {
-    "$oid": "611444ffb7755367dccbd0e9"
-  },
-  "nombreCategoria": "Postres",
-  "icono": "postresIcon.png",
-  "img": "postres.png",
-  "color": "#4881AB",
-  "fechaCreacion": {
-    "$date": "2021-08-11T21:45:35.140Z"
-  },
-  "estado": "ACTIVO",
-  "__v": 0
-},{
-  "_id": {
     "$oid": "61144517b7755367dccbd0eb"
   },
   "nombreCategoria": "Salud",
-  "icono": "saludIcon.png",
-  "img": "salud.png",
+  "icono": "https://i.ibb.co/xDxF55C/18-accesibilidad-de-medicamentos.png",
+  "img": "https://i.ibb.co/xDxF55C/18-accesibilidad-de-medicamentos.png",
   "color": "#95C94B",
   "fechaCreacion": {
     "$date": "2021-08-11T21:45:59.508Z"
@@ -55,37 +42,11 @@
     "$oid": "6114452fb7755367dccbd0ed"
   },
   "nombreCategoria": "Electronicos",
-  "icono": "electronicosIcon.png",
-  "img": "electronicos.png",
+  "icono": "https://i.ibb.co/L6vNdWK/electronicos.png",
+  "img": "https://i.ibb.co/L6vNdWK/electronicos.png",
   "color": "#88A9A8",
   "fechaCreacion": {
     "$date": "2021-08-11T21:46:23.731Z"
-  },
-  "estado": "ACTIVO",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "61144554b7755367dccbd0ef"
-  },
-  "nombreCategoria": "Libreria y papeleria",
-  "icono": "papeleriaIcon.png",
-  "img": "papeleria.png",
-  "color": "#D9767B",
-  "fechaCreacion": {
-    "$date": "2021-08-11T21:47:00.313Z"
-  },
-  "estado": "ACTIVO",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6114456cb7755367dccbd0f1"
-  },
-  "nombreCategoria": "Mascotas",
-  "icono": "mascotasIcon.png",
-  "img": "mascotas.png",
-  "color": "#D96E3D",
-  "fechaCreacion": {
-    "$date": "2021-08-11T21:47:24.080Z"
   },
   "estado": "ACTIVO",
   "__v": 0
