@@ -4,7 +4,8 @@ var esquema = new mongoose.Schema({
     imagenProducto: String,
     imagenesCarrusel: Array, //carrucel
     descripcion: String,
-    precio: Number
+    precio: Number,
+    estado: String
 });
 
 module.exports = mongoose.model('producto', esquema);

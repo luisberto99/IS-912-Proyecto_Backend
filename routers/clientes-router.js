@@ -25,15 +25,15 @@ router.post('/', (req, res) => {
     let u = new clientes({
         nombre: req.body.nombre,
         apellido: req.body.apellido,
-        imagenPerfil: req.body.imagenPerfil,
+        imagenPerfil: "https://ibb.co/4F9qLBs",
         correoElectronico: req.body.correoElectronico,
         fechaRegistro: new Date,
         password: req.body.password,
-        telefono: req.body.telefono,
-        ubicacion: req.body.ubicacion,
+        telefono: "",
+        ubicacion: "req.body.ubicacion",
         carrito: [],
         ordenes: [],
-        estado: "Activo"
+        estado: "activo"
     });
     u.save().then(result => {
             res.send(result);
@@ -51,6 +51,26 @@ router.get('/:idCliente', function(req, res) {
             _id: mongoose.Types.ObjectId(req.params.idCliente)
         }, {
             password: false
+        })
+        .then(result => {
+            res.send(result[0]);
+            res.end();
+        })
+        .catch(error => {
+            console.log('error');
+            res.send(error);
+            res.end();
+        });
+});
+//Obtener un cliente con correo
+router.get('/:email/email', function(req, res) {
+    console.log(typeof(req.params.email))
+    clientes.find({
+            correoElectronico: req.params.email
+        }, {
+            password: true,
+            _id: true,
+            correoElectronico: true
         })
         .then(result => {
             res.send(result[0]);
