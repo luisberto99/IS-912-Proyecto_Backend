@@ -161,9 +161,9 @@ router.put('/asignarMotorista', (req, res) => {
 /* CREAR NUEVA ORDEN */
 
 router.post("/nuevaOrden", (req, res) => {
-    console.log(req.body.orden.informacionPago)
+    console.log(this.body)
     ordenes.create({
-        nombreCliente: req.body.orden.informacionPago.nombrePropietario,
+        nombreCliente: req.body.orden.infoPago.nombrePropietario,
         _idCliente: req.body.orden._idCliente,
         ubicacionEntrega: req.body.orden.ubicacionEntrega,
         fechaOrden: req.body.orden.fechaOrden,
@@ -175,7 +175,7 @@ router.post("/nuevaOrden", (req, res) => {
         comisionMotorista: req.body.orden.comisionMotorista,
         totalCostoOrden: req.body.orden.totalCostoOrden,
         coordenadasUbicacionOrden: req.body.orden.coordenadasUbicacionOrden,
-        infoPago: req.body.orden.informacionPago,
+        infoPago: req.body.orden.infoPago,
         /*         "informacionPago.ultimosDigitosTargeta": req.body.orden.digitosTargeta,
                 "informacionPago.mesVencimiento": req.body.orden.mesVence,
                 "informacionPago.anoVencimiento": req.body.orden.anoVence,
