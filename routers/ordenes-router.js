@@ -161,7 +161,7 @@ router.put('/asignarMotorista', (req, res) => {
 /* CREAR NUEVA ORDEN */
 
 router.post("/nuevaOrden", (req, res) => {
-    console.log(req.body.orden)
+    console.log(req.body.orden.informacionPago)
     ordenes.create({
         nombreCliente: req.body.orden.informacionPago.nombrePropietario,
         _idCliente: req.body.orden._idCliente,
@@ -175,12 +175,11 @@ router.post("/nuevaOrden", (req, res) => {
         comisionMotorista: req.body.orden.comisionMotorista,
         totalCostoOrden: req.body.orden.totalCostoOrden,
         coordenadasUbicacionOrden: req.body.orden.coordenadasUbicacionOrden,
-        infoPago: req.body.orden.informacionPago,
-        /*         "informacionPago.ultimosDigitosTargeta": req.body.orden.digitosTargeta,
-                "informacionPago.mesVencimiento": req.body.orden.mesVence,
-                "informacionPago.anoVencimiento": req.body.orden.anoVence,
-                "informacionPago.nombrePropietario": req.body.orden.nombrePropietario,
-                "informacionPago.numeroAutorizacionPago": req.body.orden.numAutorizacionPago, */
+        "informacionPago.ultimosDigitosTargeta": req.body.orden.digitosTargeta,
+        "informacionPago.mesVencimiento": req.body.orden.mesVence,
+        "informacionPago.anoVencimiento": req.body.orden.anoVence,
+        "informacionPago.nombrePropietario": req.body.orden.nombrePropietario,
+        "informacionPago.numeroAutorizacionPago": req.body.orden.numAutorizacionPago,
         comisionAdministrador: req.body.orden.comisionAdministrador
 
     }).then(result => {

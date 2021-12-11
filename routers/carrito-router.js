@@ -24,7 +24,7 @@ router.get('/:idCliente/empresas/:idEmpresa', (req, res) => {
 
 /* AGREGAR UNA EMPRESA AL CARRITO DE COMPRAS */
 router.post('/:idCliente/empresas/', (req, res) => {
-
+    console.log('Agregar empresa');
     Cliente.updateOne({
             _id: mongoose.Types.ObjectId(req.params.idCliente)
         }, {
@@ -33,8 +33,9 @@ router.post('/:idCliente/empresas/', (req, res) => {
                     empresaID: mongoose.Types.ObjectId(req.body.empresa.empresaID),
                     nombreEmpresa: req.body.empresa.nombreEmpresa,
                     subTotal: 0,
-                    "productos": [{
+                    productos: [{
                         productoID: mongoose.Types.ObjectId(req.body.empresa.producto.productoID),
+                        nombreProducto: req.body.empresa.producto.nombreProducto,
                         unidades: req.body.empresa.producto.unidades,
                         precio: req.body.empresa.producto.precio,
                         nota: req.body.empresa.producto.nota
@@ -73,7 +74,8 @@ router.put('/:idCliente/empresas/:idEmpresa/', (req, res) => {
 
 /* AGREGAR UN PRODUCTO  UNA EMPESA EN EL CARRITO DE COMPRAS  */
 router.post('/:idCliente/empresas/:idEmpresa', (req, res) => {
-    console.log("entrodd")
+    console.log('Agregar producto')
+    console.log(req.body.producto)
     Cliente.updateOne({
             _id: mongoose.Types.ObjectId(req.params.idCliente),
             "carrito.empresaID": mongoose.Types.ObjectId(req.params.idEmpresa)
