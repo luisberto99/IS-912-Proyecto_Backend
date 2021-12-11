@@ -1,168 +1,208 @@
 const express = require('express');
 const router = express.Router();
-const ordenes = require('../models/ordenes.js')
 const mongoose = require('mongoose');
+
+const data = require('../modules/database');
 
 
 
 /* OBTENER TODAS LAS ORDENES DISPONIBLES*/
-router.get('/disponibles', (req, res) => {
-    ordenes.find({ estadoOrden: 'Disponible' }).then(result => {
-        res.send(JSON.stringify(result));
-        // console.log(result);
-        res.end();
+router.get('/disponibles', async(req, res) => {
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION ORDENES */
+    const ordenes = await db.collection('ordenes');
+    /* CONSULTA */
+    result = await ordenes.find({
+        estadoOrden: 'Disponible'
+    }).toArray();
 
-    }).catch(e => {
-        res.send(e);
-        res.end();
-    })
+    res.send(JSON.stringify(result));
+    // console.log(result);
+    res.end();
 });
 
 /* OBTENER TODAS LAS ORDENES*/
-router.get('/', (req, res) => {
-    ordenes.find().then(result => {
-        res.send(result);
-        res.end();
-
-    }).catch(e => {
-        res.send(e);
-        res.end();
-    })
+router.get('/', async(req, res) => {
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION ORDENES */
+    const ordenes = await db.collection('ordenes');
+    /* CONSULTA */
+    result = await ordenes.find().toArray()
+    res.send(result);
+    res.end();
 });
 
 
 /* OBTENER TODAS LAS ORDENES TOMADAS*/
-router.get('/tomadas', (req, res) => {
-    ordenes.find({ estadoOrden: 'Tomada' }).then(result => {
-        res.send(result);
-        //console.log(result);
-        res.end();
-
-    }).catch(e => {
-        res.send(e);
-        res.end();
-    })
+router.get('/tomadas', async(req, res) => {
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION ORDENES */
+    const ordenes = await db.collection('ordenes');
+    /* CONSULTA */
+    result = await ordenes.find({
+        estadoOrden: 'Tomada'
+    }).toArray();
+    res.send(result);
+    //console.log(result);
+    res.end();
 });
 
 /* OBTENER TODAS LAS ORDENES DE UN CLIENTE */
-router.get('/cliente/:idCliente', (req, res) => {
-    ordenes.find({
+router.get('/cliente/:idCliente', async(req, res) => {
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION ORDENES */
+    const ordenes = await db.collection('ordenes');
+    /* CONSULTA */
+    restul = await ordenes.find({
         _idCliente: mongoose.Types.ObjectId(req.params.idCliente)
-    }).sort({
+    }).toArray().sort({
         _id: -1
-    }).then(result => {
-        res.send(result);
-        res.end();
-    }).catch(e => {
-        res.send(e);
-        res.end();
-    })
+    });
+
+    res.send(result);
+    res.end();
 });
 
 /* ACTUALIZAR EL ESTADO DE UNA ORDEN */
-router.put('/updateOrden', (req, res) => {
+router.put('/updateOrden', async(req, res) => {
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION ORDENES */
+    const ordenes = await db.collection('ordenes');
+    /* CONSULTA */
     // console.log('siuu',req.body.idOrden,req.body.estado);
-    ordenes.updateOne({ _id: req.body.idOrden }, { $set: { estadoOrden: `${req.body.estado}` } }).then(result => {
-        res.send({ result })
-        res.end();
-    })
+    result = await ordenes.updateOne({
+        _id: req.body.idOrden
+    }, {
+        $set: {
+            estadoOrden: `${req.body.estado}`
+        }
+    });
+    res.send({ result })
+    res.end();
 });
 
 /* OBTENER ORDEN EN ESPECIFICO*/
-router.get('/obtenerOrden/:idOrden', (req, res) => {
-
-    ordenes.find({ _id: req.params.idOrden }).then(result => {
-        res.send(result[0]);
-        res.end();
-    }).catch(e => {
-        res.send(e);
-        res.end()
-    });
-})
+router.get('/obtenerOrden/:idOrden', async(req, res) => {
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION ORDENES */
+    const ordenes = await db.collection('ordenes');
+    /* CONSULTA */
+    result = await ordenes.find({
+        _id: req.params.idOrden
+    }).toArray();
+    res.send(result[0]);
+    res.end();
+});
 
 /* VERIFICAR SI UN MOTORISTA CUENTA CON UNA ORDEN TOMADA. FALSE=NO TIENE, TRUE=TIENE*/
-router.get('/verifyOrden/:idMotorista', (req, res) => {
+router.get('/verifyOrden/:idMotorista', async(req, res) => {
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION ORDENES */
+    const ordenes = await db.collection('ordenes');
+    /* CONSULTA */
+    result = await ordenes.find({
+        _idMotorista: req.params.idMotorista
+    }).toArray();
 
-    ordenes.find({ _idMotorista: req.params.idMotorista }).then(result => {
-        if (result.length < 1) {
-            res.send({ result: false });
-            res.end();
-        } else {
-            res.send({ result: true });
-            res.end();
-        }
-    }).catch(e => {
-        res.send(e);
+    if (result.length < 1) {
+        res.send({ result: false });
         res.end();
-    });
-})
+    } else {
+        res.send({ result: true });
+        res.end();
+    }
+});
 
 
 /* OBTENER ORDEN TOMADA ACTUALMENTE POR EL MOTORISTA */
-router.get('/ordenTomadaMotorista/:idMotorista', (req, res) => {
+router.get('/ordenTomadaMotorista/:idMotorista', async(req, res) => {
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION ORDENES */
+    const ordenes = await db.collection('ordenes');
+    /* CONSULTA */
+    orden = await ordenes.find({
+        _idMotorista: req.params.idMotorista
+    }).toArray();
 
-    ordenes.find({ _idMotorista: req.params.idMotorista }).then(orden => {
-        if (orden.length < 1) {
-            res.send({ result: false });
-            res.end();
-        } else {
-            let status = false;
-            for (let i = 0; i < orden.length; i++) {
-                if (orden[i].estadoOrden == "Tomada") {
-                    res.send(orden[i]);
-                    res.end();
-                    status = true;
-                }
-            }
-            if (status == false) {
 
-                res.send({ result: false });
-                res.end();
-            }
-        }
-    }).catch(e => {
-        res.send(e);
-        res.end();
-    });
-})
-
-/* OBTENER LAS ORDENES ENTREGAS POR EL MOTORISTA */
-router.get('/ordenesEntregadas/:idMotorista', (req, res) => {
-
-    ordenes.find({ _idMotorista: req.params.idMotorista, estadoOrden: 'Entregada' }).then(ordenes => {
-        res.send(ordenes);
-        res.end();
-    }).catch(e => {
-        res.send(e);
-        res.end();
-    });
-})
-
-/* ASIGNAR MOTORISTA A ORDEN */
-router.put('/asignarMotorista', (req, res) => {
-    ordenes.updateOne({ _id: req.body.idOrden }, {
-        estadoOrden: "Tomada",
-        _idMotorista: req.body.idMotorista,
-        nombreMotorista: req.body.nombreMotorista,
-        apellidoMotorista: req.body.apellido
-    }).then(result => {
-        res.send({ result: true })
-        res.end();
-
-    }).catch(e => {
+    if (orden.length < 1) {
         res.send({ result: false });
         res.end();
+    } else {
+        let status = false;
+        for (let i = 0; i < orden.length; i++) {
+            if (orden[i].estadoOrden == "Tomada") {
+                res.send(orden[i]);
+                res.end();
+                status = true;
+            }
+        }
+        if (status == false) {
 
-    })
+            res.send({ result: false });
+            res.end();
+        }
+    }
+});
 
-})
+/* OBTENER LAS ORDENES ENTREGAS POR EL MOTORISTA */
+router.get('/ordenesEntregadas/:idMotorista', async(req, res) => {
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION ORDENES */
+    const ordenes = await db.collection('ordenes');
+    /* CONSULTA */
+    ordenes = await ordenes.find({
+        _idMotorista: req.params.idMotorista,
+        estadoOrden: 'Entregada'
+    }).toArray();
+
+
+    res.send(ordenes);
+    res.end();
+});
+
+/* ASIGNAR MOTORISTA A ORDEN */
+router.put('/asignarMotorista', async(req, res) => {
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION ORDENES */
+    const ordenes = await db.collection('ordenes');
+    /* CONSULTA */
+    result = await ordenes.updateOne({
+        _id: req.body.idOrden
+    }, {
+        $set: {
+            estadoOrden: "Tomada",
+            _idMotorista: req.body.idMotorista,
+            nombreMotorista: req.body.nombreMotorista,
+            apellidoMotorista: req.body.apellido
+        }
+    });
+    res.send({ result: true })
+    res.end();
+
+});
 
 
 /* CREAR NUEVA ORDEN */
 
-router.post("/nuevaOrden", (req, res) => {
+router.post("/nuevaOrden", async(req, res) => {
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION ORDENES */
+    const ordenes = await db.collection('ordenes');
+    /* CONSULTA */
     console.log(req.body.orden.informacionPago)
-    ordenes.create({
+    result = await ordenes.insertOne({
         nombreCliente: req.body.orden.informacionPago.nombrePropietario,
         _idCliente: req.body.orden._idCliente,
         ubicacionEntrega: req.body.orden.ubicacionEntrega,
@@ -182,41 +222,42 @@ router.post("/nuevaOrden", (req, res) => {
         "informacionPago.numeroAutorizacionPago": req.body.orden.numAutorizacionPago,
         comisionAdministrador: req.body.orden.comisionAdministrador
 
-    }).then(result => {
-
-        res.send(result);
-        res.end();
-
-    }).catch(e => {
-        res.send({ result: false });
-        res.end();
     });
+    res.send(result);
+    res.end();
 });
 
 /* AGREGAR PRODUCTOS A ORDEN */
-router.put("/agregarProductos", (req, res) => {
-
+router.put("/agregarProductos", async(req, res) => {
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION ORDENES */
+    const ordenes = await db.collection('ordenes');
+    /* CONSULTA */
     let product = req.body.orden.products
 
-    ordenes.updateOne({ _id: req.body.orden.idOrden }, {
+    result = await ordenes.updateOne({
+        _id: req.body.orden.idOrden
+    }, {
         $push: { productosOrden: product }
-    }).then(result => {
-
-        res.send(result);
-        res.end();
-
-    }).catch(e => {
-        res.send({ result: false });
-        res.end();
     })
+
+    res.send(result);
+    res.end();
 
 });
 
 
 /* AGREGAR PRODUCTO A ORDEN */
-router.put("/agregarProducto", (req, res) => {
-
-    ordenes.updateOne({ _id: req.body.orden.idOrden }, {
+router.put("/agregarProducto", async(req, res) => {
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION ORDENES */
+    const ordenes = await db.collection('ordenes');
+    /* CONSULTA */
+    result = await ordenes.updateOne({
+        _id: req.body.orden.idOrden
+    }, {
         $push: {
             productosOrden: {
                 nombreProducto: req.body.orden.nombreProduct,
@@ -225,39 +266,37 @@ router.put("/agregarProducto", (req, res) => {
                 nota: req.body.orden.nota
             }
         }
-    }).then(result => {
-        res.send(result);
-        res.end();
-
-    }).catch(e => {
-        res.send({ result: false });
-        res.end();
     })
+    res.send(result);
+    res.end();
 });
 
 /* VERIFICAR SI MOTORISTA TIENE ACTUALMENTE UNA ORDEN TOMADA. */
 
-router.get("/:idMotorista/verificarOrdenMotorista", (req, res) => {
-
-    ordenes.find({ _idMotorista: req.params.idMotorista }, { estadoOrden: true }).then(result => {
-        let estado = true;
-        result.forEach(orden => {
-            if (orden.estadoOrden == "Tomada") {
-                res.send({ result: true });
-                res.end();
-                estado = false;
-            }
-        });
-
-        if (estado) {
-            res.send({ result: false });
+router.get("/:idMotorista/verificarOrdenMotorista", async(req, res) => {
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION ORDENES */
+    const ordenes = await db.collection('ordenes');
+    /* CONSULTA */
+    result = await ordenes.find({
+        _idMotorista: req.params.idMotorista
+    }, {
+        estadoOrden: true
+    });
+    let estado = true;
+    result.forEach(orden => {
+        if (orden.estadoOrden == "Tomada") {
+            res.send({ result: true });
             res.end();
+            estado = false;
         }
+    });
 
-    }).catch(e => {
+    if (estado) {
         res.send({ result: false });
         res.end();
-    })
+    }
 
 })
 
