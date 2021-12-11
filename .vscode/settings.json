@@ -1,0 +1,4 @@
+{
+     "appService.defaultWebAppToDeploy": "/subscriptions/5d01ad37-483f-4a40-904e-86854f3aacba/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/web-app-limalimon",
+     "appService.deploySubpath": "."
+}
