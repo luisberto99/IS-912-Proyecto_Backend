@@ -3,7 +3,6 @@ var router = express.Router();
 const data = require('../modules/database');
 
 
-
 /* OBTENER TODAS LAS CATEGORIAS */
 router.get('/', async(req, res) => {
     /* CONECCION A LA BASE DE DATOS */
