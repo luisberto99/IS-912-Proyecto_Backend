@@ -104,7 +104,7 @@ router.get('/:idCategoria/empresas', async(req, res) => {
 
     /* CONECCION A LA BASE DE DATOS */
     const db = await data.connectToDatabase();
-    /* OBTENER COLLECION CATEGORIAS */
+    /* OBTENER COLLECION EMPRESAS */
     const empresas = await db.collection('empresas');
 
     /* CONSULTA */
