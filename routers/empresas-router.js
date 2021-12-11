@@ -1,44 +1,51 @@
 var express = require('express');
 var router = express.Router();
-var empresas = require('../models/empresas');
-var productos = require('../models/productos');
 var mongoose = require('mongoose');
+const data = require('../modules/database');
 
 /* ******************************************
  *******        EMPRESAS          *********
  ****************************************** */
 
-/* OBTENER TODAS LAS EMPRESAS */
-router.get('/', function(req, res) {
-    empresas.find({}, {})
-        .then(result => {
-            res.send(result);
-            res.end();
-        })
-        .catch(error => {
-            res.send(error);
-            res.end();
-        });
+
+router.get('/', async function(req, res) {
+    /* OBTENER TODAS LAS EMPRESAS */
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION EMPRESAS */
+    const empresas = await db.collection('empresas');
+    /* CONSULTA */
+    result = await empresas.find({}, {}).toArray();
+
+    res.send(result);
+    res.end();
 });
 
 /* OBTENER INFORMACION DE UNA EMPRESA */
 
-router.get('/:idEmpresa', (req, res) => {
-    empresas.find({
-            _id: req.params.idEmpresa
-        }, {})
-        .then(result => {
-            res.send(result[0]);
-            res.end()
-        })
-        .catch(error => {
-            res.send(error);
-            res.end();
-        });
+router.get('/:idEmpresa', async(req, res) => {
+    /* OBTENER TODAS LAS EMPRESAS */
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION EMPRESAS */
+    const empresas = await db.collection('empresas');
+    /* CONSULTA */
+    result = await empresas.find({
+        _id: req.params.idEmpresa
+    }, {}).toArray();
+
+    res.send(result[0]);
+    res.end()
 });
 
 /* AGREGAR UNA NUEVA EMPRESA */
-router.post('/', (req, res) => {
+router.post('/', async(req, res) => {
+    /* OBTENER TODAS LAS EMPRESAS */
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION EMPRESAS */
+    const empresas = await db.collection('empresas');
+    /* CONSULTA */
     let u = new empresas({
         nombreComercialEmpresa: req.body.empresa.nombreComercialEmpresa,
         RTN: req.body.empresa.RTN,
@@ -53,60 +60,61 @@ router.post('/', (req, res) => {
         calificacion: 0,
         telefono: req.body.empresa.telefono
     });
-    u.save().then(result => {
-            res.send(result);
-            res.end();
-        })
-        .catch(error => {
-            res.send(error);
-            res.end();
-        });
+
+    result = await empresas.insertOne(u);
+
+    res.send(result);
+    res.end();
 });
 
 
 /* ACTUALIZAR UNA EMPRESA */
-router.put('/:id', (req, res) => {
+router.put('/:id', async(req, res) => {
+    /* OBTENER TODAS LAS EMPRESAS */
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION EMPRESAS */
+    const empresas = await db.collection('empresas');
+    /* CONSULTA */
     console.log(req.body)
-    empresas.updateOne({
-            _id: req.params.id
-        }, {
-            $set: {
-                nombreComercialEmpresa: req.body.empresa.nombreComercialEmpresa,
-                RTN: req.body.empresa.RTN,
-                direccion: req.body.empresa.direccion,
-                logo: req.body.logo,
-                banner: req.body.banner,
-                descripcion: req.body.empresa.descripcion,
-                telefonoContacto: req.body.empresa.telefonoContacto,
-                estado: req.body.empresa.estado,
-                categorias: req.body.empresa.categorias,
-                calificacion: req.body.empresa.calificacion,
-                telefono: req.body.empresa.telefono
-            }
-        }).then(result => {
-            res.send(result);
-            res.end();
-        })
-        .catch(error => {
-            res.send(error);
-            res.end();
-        });
+    result = await empresas.updateOne({
+        _id: req.params.id
+    }, {
+        $set: {
+            nombreComercialEmpresa: req.body.empresa.nombreComercialEmpresa,
+            RTN: req.body.empresa.RTN,
+            direccion: req.body.empresa.direccion,
+            logo: req.body.logo,
+            banner: req.body.banner,
+            descripcion: req.body.empresa.descripcion,
+            telefonoContacto: req.body.empresa.telefonoContacto,
+            estado: req.body.empresa.estado,
+            categorias: req.body.empresa.categorias,
+            calificacion: req.body.empresa.calificacion,
+            telefono: req.body.empresa.telefono
+        }
+    });
+
+    res.send(result);
+    res.end();
 });
 
 /* ELIMINAR UNA EMPRESA - ESTADO INACTIVO */
-router.delete('/:id', (req, res) => {
-    empresas.updateOne({
-            _id: req.params.id
-        }, {
-            estado: "INACTIVO"
-        }).then(result => {
-            res.send(result);
-            res.end();
-        })
-        .catch(error => {
-            res.send(error);
-            res.end();
-        });
+router.delete('/:id', async(req, res) => {
+    /* OBTENER TODAS LAS EMPRESAS */
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION EMPRESAS */
+    const empresas = await db.collection('empresas');
+    /* CONSULTA */
+    result = await empresas.updateOne({
+        _id: req.params.id
+    }, {
+        estado: "INACTIVO"
+    });
+
+    res.send(result);
+    res.end();
 });
 
 /* ******************************************
@@ -114,24 +122,32 @@ router.delete('/:id', (req, res) => {
  ****************************************** */
 
 /* OBTENER TODOS LOS PRODUCTOS DE UNA EMPRESA */
-router.get('/:idEmpresa/productos', (req, res) => {
-    empresas.find({
-            _id: mongoose.Types.ObjectId(req.params.idEmpresa)
-        }, {
-            _id: false,
-            productosEmpresa: true
-        }).then(result => {
-            res.send(result[0].productosEmpresa);
-            res.end();
-        })
-        .catch(error => {
-            res.send(error);
-            res.end();
-        });
+router.get('/:idEmpresa/productos', async(req, res) => {
+    /* OBTENER TODAS LAS EMPRESAS */
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION EMPRESAS */
+    const empresas = await db.collection('empresas');
+    /* CONSULTA */
+    result = await empresas.find({
+        _id: mongoose.Types.ObjectId(req.params.idEmpresa)
+    }, {
+        _id: false,
+        productosEmpresa: true
+    });
+
+    res.send(result[0].productosEmpresa);
+    res.end();
 });
 
 /* AGREGAR UN NUEVO PRODUCTO */
-router.post('/:idEmpresa/productos', (req, res) => {
+router.post('/:idEmpresa/productos', async(req, res) => {
+    /* OBTENER TODAS LAS EMPRESAS */
+    /* CONECCION A LA BASE DE DATOS */
+    const db = await data.connectToDatabase();
+    /* OBTENER COLLECION EMPRESAS */
+    const empresas = await db.collection('empresas');
+    /* CONSULTA */
     console.log(req.body)
     let producto = new productos({
         _id: mongoose.Types.ObjectId(),
@@ -142,20 +158,16 @@ router.post('/:idEmpresa/productos', (req, res) => {
         precio: req.body.producto.precio,
         estado: "activo"
     });
-    empresas.updateOne({
-            _id: mongoose.Types.ObjectId(req.body.producto.empresa)
-        }, {
-            $push: {
-                productosEmpresa: producto
-            }
-        }).then(result => {
-            res.send(result);
-            res.end();
-        })
-        .catch(error => {
-            res.send(error);
-            res.end();
-        });
+    result = await empresas.updateOne({
+        _id: mongoose.Types.ObjectId(req.body.producto.empresa)
+    }, {
+        $push: {
+            productosEmpresa: producto
+        }
+    });
+
+    res.send(result);
+    res.end();
 });
 
 
