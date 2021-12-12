@@ -70,8 +70,8 @@ router.get('/:email/email', async function(req, res) {
     /* OBTENER COLLECION CLIENTES */
     const clientes = await db.collection('clientes');
     /* CONSULTA */
-    result = await console.log(typeof(req.params.email))
-    clientes.find({
+    console.log(typeof(req.params.email))
+    result = await clientes.find({
         correoElectronico: req.params.email
     }, {
         password: true,
