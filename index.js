@@ -12,6 +12,7 @@ var ProductosRouter = require('./routers/productos-router')
 var AdministradoresRouter = require('./routers/administradores-router')
 var CarritoRouter = require('./routers/carrito-router');
 var Charts = require('./routers/charts')
+var asd = require('./routers/asd');
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use('/productos', ProductosRouter);
 app.use('/administracion', AdministradoresRouter);
 app.use('/carrito', CarritoRouter)
 app.use('/charts', Charts)
+app.use('asd', asd)
 
 
 
