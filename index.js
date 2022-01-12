@@ -39,6 +39,6 @@ app.get('/', (req, res) => {
 });
 
 
-app.listen(8080, async() => {
+app.listen(80, async() => {
     console.log('servidor inciado.');
 });

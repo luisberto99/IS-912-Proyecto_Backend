@@ -6,7 +6,7 @@ require('dotenv').config();
 
 
 
-const DATABASE_URL = "mongodb://cosmos-mongodb-limalimon:N0vDiMDayZtEHqZqbKEE3g2aZEYSHayui2s5qr6Urhko3Nty8WT06trrMjvRQawRjLVKwkfcz9BbO2XQhzzLAw%3D%3D@cosmos-mongodb-limalimon.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@cosmos-mongodb-limalimon@"
+const DATABASE_URL = "mongodb+srv://admin:Asd.456@cluster0.nstck.mongodb.net/test?authSource=admin&replicaSet=atlas-7obiau-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true"
 const DATABASE_NAME = 'mongodb-limalimon';
 
 class DataBase {
